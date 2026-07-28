@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="glowTL" cx="12%" cy="15%" r="55%">
+      <stop offset="0%" stop-color="#ECC80B" stop-opacity="0.30"/>
+      <stop offset="55%" stop-color="#ECC80B" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ECC80B" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBR" cx="88%" cy="88%" r="60%">
+      <stop offset="0%" stop-color="#ECC80B" stop-opacity="0.18"/>
+      <stop offset="55%" stop-color="#ECC80B" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#ECC80B" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="2" fill="#FEFEFE" opacity="0.045"/>
+    </pattern>
+    <linearGradient id="dotFade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.1"/>
+    </linearGradient>
+    <mask id="dotMask">
+      <rect width="1920" height="1080" fill="url(#dotFade)"/>
+    </mask>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#0E0E0E"/>
+  <rect width="1920" height="1080" fill="url(#glowTL)"/>
+  <rect width="1920" height="1080" fill="url(#glowBR)"/>
+  <rect width="1920" height="1080" fill="url(#dots)" mask="url(#dotMask)"/>
+
+  <circle cx="330" cy="820" r="260" fill="none" stroke="#ECC80B" stroke-opacity="0.14" stroke-width="2"/>
+  <circle cx="330" cy="820" r="180" fill="none" stroke="#FEFEFE" stroke-opacity="0.06" stroke-width="2"/>
+  <circle cx="1650" cy="180" r="220" fill="none" stroke="#ECC80B" stroke-opacity="0.10" stroke-width="2"/>
+  <path d="M1500 930 l60 0 M1530 900 l0 60" stroke="#ECC80B" stroke-opacity="0.35" stroke-width="4" stroke-linecap="round"/>
+  <path d="M240 220 l44 0 M262 198 l0 44" stroke="#FEFEFE" stroke-opacity="0.18" stroke-width="4" stroke-linecap="round"/>
+</svg>
