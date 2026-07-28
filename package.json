@@ -11,13 +11,13 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "jarallax": "^2.2.1",
-    "next": "15.2.1",
-    "react": "^19.0.0",
+    "next": "^15.5.22",
+    "react": "^19.2.8",
     "react-countup": "^6.5.3",
-    "react-dom": "^19.0.0",
+    "react-dom": "^19.2.8",
     "react-fast-marquee": "^1.6.5",
     "react-intersection-observer": "^9.16.0",
-    "swiper": "^11.2.5"
+    "swiper": "^14.0.6"
   },
   "devDependencies": {
     "@types/bootstrap": "^5.2.10",
