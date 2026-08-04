@@ -12,7 +12,7 @@ const ResultsArea = () => {
           <div className="row g-4 justify-content-between align-items-stretch">
             <div className="col-12 col-lg-5 col-xl-5 col-xxl-6">
               <div className="cta-side-image">
-                <img className="nova-card-img" src="/assets/img/nova/av-mic.svg" alt="Ilustración de un micrófono de estudio con onda de audio" />
+                <img className="nova-card-img" src="/assets/img/nova/edificio-02.jpg" alt="Entrada principal del edificio de Nova Studios" />
               </div>
             </div>
 

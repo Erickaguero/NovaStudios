@@ -93,3 +93,58 @@
   background: #0E0E0E;
   display: inline-block;
 }
+/* ===== Fix: botones — el texto llegaba al borde porque los <span> absolutos
+   no aportan ancho; el primer span pasa a flujo normal para que el botón
+   crezca con su contenido ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn span:first-child {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+}
+.btn:active span:first-child,
+.btn:focus span:first-child,
+.btn:hover span:first-child {
+  transform: translateY(-80px);
+}
+
+/* ===== Fix: tarjetas de planes — misma altura, botón alineado abajo y
+   "Cotización personalizada" con tamaño de frase, no de precio ===== */
+.price-table-wrapper .row > [class*="col-"] {
+  display: flex;
+}
+.price-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.price-card .price-description {
+  flex-grow: 1;
+  align-items: flex-start;
+}
+.price-card .choose-plan {
+  margin-top: auto;
+}
+.price-card .price-info .price {
+  font-size: 26px;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+@media only screen and (min-width: 1200px) {
+  .price-card .price-info .price {
+    font-size: 30px;
+  }
+}
+.price-card .price-description li {
+  align-items: flex-start;
+}
+.price-card .price-description li span {
+  flex-shrink: 0;
+  line-height: 1.2;
+}

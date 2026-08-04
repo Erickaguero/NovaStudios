@@ -1,4 +1,5 @@
 "use client"
+import { useWeb3Form } from '@/hooks/use-web3form';
 import React from 'react';
 
 const infoStyle: React.CSSProperties = {
@@ -11,6 +12,8 @@ const infoStyle: React.CSSProperties = {
 };
 
 const ContactHomeArea = () => {
+  const { status, handleSubmit } = useWeb3Form();
+
   return (
     <>
       <div id="contacto" className="cta-wrap"
@@ -49,11 +52,23 @@ const ContactHomeArea = () => {
               <div className="contact-form" style={{ margin: 0 }}>
                 <h3 className="mb-4">Agenda tu consulta inicial</h3>
 
-                <form onClick={e => e.preventDefault()} className="mt-3">
-                  <input type="text" name="text" className="form-control" placeholder="Tu nombre" />
-                  <input type="email" name="email" className="form-control" placeholder="Correo electrónico" />
-                  <textarea name="message" className="form-control" placeholder="Cuéntanos sobre tu proyecto" id="message"></textarea>
-                  <button className="btn btn-primary mt-3"><span>ENVIAR MENSAJE</span><span>ENVIAR MENSAJE</span></button>
+                <form onSubmit={handleSubmit} className="mt-3">
+                  <input type="hidden" name="subject" value="Nuevo mensaje desde la página principal" />
+                  <input type="text" name="name" required className="form-control" placeholder="Tu nombre" />
+                  <input type="email" name="email" required className="form-control" placeholder="Correo electrónico" />
+                  <textarea name="message" required className="form-control" placeholder="Cuéntanos sobre tu proyecto" id="message"></textarea>
+                  <button type="submit" disabled={status === "sending"} className="btn btn-primary mt-3">
+                    <span>{status === "sending" ? "ENVIANDO..." : "ENVIAR MENSAJE"}</span>
+                    <span>{status === "sending" ? "ENVIANDO..." : "ENVIAR MENSAJE"}</span>
+                  </button>
+                  {status === "success" && (
+                    <p className="mt-3 mb-0" style={{ color: '#7ED9A0', fontWeight: 600 }}>
+                      ¡Mensaje enviado! Te responderemos muy pronto.</p>
+                  )}
+                  {status === "error" && (
+                    <p className="mt-3 mb-0" style={{ color: '#F08A8A', fontWeight: 600 }}>
+                      Hubo un problema al enviar. Inténtalo de nuevo o escríbenos a hello@novastudios.agency.</p>
+                  )}
                 </form>
               </div>
             </div>

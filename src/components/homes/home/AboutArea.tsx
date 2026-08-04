@@ -21,7 +21,7 @@ const AboutArea = () => {
 
             <div className="col-12 col-md-6">
               <div className="about-us-thumbnail">
-                <img className="nova-card-img" src="/assets/img/nova/av-camera.svg" alt="Ilustración de una cámara de cine sobre trípode" />
+                <img className="nova-card-img" src="/assets/img/nova/edificio-01.jpg" alt="Fachada del edificio de Nova Studios iluminado al atardecer" />
               </div>
             </div>
 

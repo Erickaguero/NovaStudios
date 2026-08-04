@@ -266,7 +266,7 @@ const Nosotros = () => {
           <div className="row g-4 g-lg-5 justify-content-center">
             <div className="col-12 col-sm-6 col-lg-4">
               <div className="team-card">
-                <img src="/assets/img/nova/team-gn.svg" alt="Gamaliel Noriega, fundador y director creativo de Nova Studios" />
+                <img src="/assets/img/nova/team-gamaliel.jpg" alt="Gamaliel Noriega, fundador y director creativo de Nova Studios" />
                 <div className="team-info">
                   <h4>Gamaliel Noriega</h4>
                   <p className="mb-0">Fundador y Director Creativo</p>
@@ -276,7 +276,7 @@ const Nosotros = () => {
 
             <div className="col-12 col-sm-6 col-lg-4">
               <div className="team-card">
-                <img src="/assets/img/nova/team-ss.svg" alt="Stephanie Salas, co-fundadora y directora de operaciones de Nova Studios" />
+                <img src="/assets/img/nova/team-stephanie.jpg" alt="Stephanie Salas, co-fundadora y directora de operaciones de Nova Studios" />
                 <div className="team-info">
                   <h4>Stephanie Salas</h4>
                   <p className="mb-0">Co-Fundadora y Directora de Operaciones</p>
