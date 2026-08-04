@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <pattern id="ht" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="3.2" fill="#1D1D1D"/>
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#ECC80B" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#ECC80B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="900" fill="#0E0E0E"/>
+  <rect width="1200" height="900" fill="url(#ht)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- cinema camera -->
+  <g transform="translate(600 420)">
+    <!-- body -->
+    <rect x="-250" y="-110" width="380" height="240" rx="28" fill="#161616" stroke="#ECC80B" stroke-width="7"/>
+    <!-- top handle -->
+    <rect x="-180" y="-170" width="200" height="42" rx="21" fill="none" stroke="#FEFEFE" stroke-width="7"/>
+    <!-- viewfinder -->
+    <rect x="-330" y="-80" width="80" height="70" rx="14" fill="none" stroke="#FEFEFE" stroke-width="7"/>
+    <!-- lens barrel -->
+    <rect x="130" y="-70" width="150" height="160" rx="18" fill="#161616" stroke="#ECC80B" stroke-width="7"/>
+    <rect x="280" y="-46" width="46" height="112" rx="12" fill="#ECC80B"/>
+    <!-- lens rings -->
+    <line x1="165" y1="-70" x2="165" y2="90" stroke="#ECC80B" stroke-width="6" opacity="0.6"/>
+    <line x1="205" y1="-70" x2="205" y2="90" stroke="#ECC80B" stroke-width="6" opacity="0.6"/>
+    <!-- reels -->
+    <circle cx="-150" cy="-190" r="62" fill="#161616" stroke="#ECC80B" stroke-width="7"/>
+    <circle cx="-150" cy="-190" r="24" fill="none" stroke="#FEFEFE" stroke-width="6"/>
+    <circle cx="-10" cy="-190" r="62" fill="#161616" stroke="#ECC80B" stroke-width="7"/>
+    <circle cx="-10" cy="-190" r="24" fill="none" stroke="#FEFEFE" stroke-width="6"/>
+    <!-- record dot -->
+    <circle cx="-200" cy="-55" r="16" fill="#ECC80B"/>
+    <!-- side detail lines -->
+    <line x1="-210" y1="40" x2="60" y2="40" stroke="#FEFEFE" stroke-width="6" opacity="0.5"/>
+    <line x1="-210" y1="75" x2="10" y2="75" stroke="#FEFEFE" stroke-width="6" opacity="0.35"/>
+    <!-- tripod -->
+    <line x1="-60" y1="130" x2="-60" y2="205" stroke="#FEFEFE" stroke-width="8"/>
+    <line x1="-60" y1="205" x2="-170" y2="330" stroke="#FEFEFE" stroke-width="8"/>
+    <line x1="-60" y1="205" x2="50" y2="330" stroke="#FEFEFE" stroke-width="8"/>
+    <line x1="-60" y1="205" x2="-60" y2="330" stroke="#FEFEFE" stroke-width="8" opacity="0.55"/>
+  </g>
+
+  <text x="80" y="820" font-family="Poppins, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="10" fill="#ECC80B">PRODUCCIÓN</text>
+  <text x="1120" y="820" text-anchor="end" font-family="Poppins, Arial, sans-serif" font-size="26" font-weight="600" letter-spacing="6" fill="#5A5A5A">NOVA STUDIOS</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <pattern id="ht" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="3.2" fill="#1D1D1D"/>
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#ECC80B" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#ECC80B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="900" fill="#0E0E0E"/>
+  <rect width="1200" height="900" fill="url(#ht)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- studio microphone -->
+  <g transform="translate(600 380)">
+    <!-- shock mount ring -->
+    <circle cx="0" cy="0" r="200" fill="none" stroke="#FEFEFE" stroke-width="7" opacity="0.5"/>
+    <!-- mic body -->
+    <rect x="-70" y="-160" width="140" height="300" rx="70" fill="#161616" stroke="#ECC80B" stroke-width="8"/>
+    <!-- grille lines -->
+    <line x1="-45" y1="-120" x2="-45" y2="-10" stroke="#ECC80B" stroke-width="5" opacity="0.7"/>
+    <line x1="-15" y1="-135" x2="-15" y2="-10" stroke="#ECC80B" stroke-width="5" opacity="0.7"/>
+    <line x1="15" y1="-135" x2="15" y2="-10" stroke="#ECC80B" stroke-width="5" opacity="0.7"/>
+    <line x1="45" y1="-120" x2="45" y2="-10" stroke="#ECC80B" stroke-width="5" opacity="0.7"/>
+    <line x1="-60" y1="30" x2="60" y2="30" stroke="#FEFEFE" stroke-width="6" opacity="0.55"/>
+    <circle cx="0" cy="90" r="14" fill="#ECC80B"/>
+    <!-- stand -->
+    <line x1="0" y1="200" x2="0" y2="290" stroke="#FEFEFE" stroke-width="8"/>
+    <line x1="-90" y1="290" x2="90" y2="290" stroke="#FEFEFE" stroke-width="8"/>
+  </g>
+
+  <!-- waveform -->
+  <g stroke="#ECC80B" stroke-width="10" stroke-linecap="round">
+    <line x1="330" y1="760" x2="330" y2="720"/>
+    <line x1="375" y1="775" x2="375" y2="705"/>
+    <line x1="420" y1="790" x2="420" y2="690"/>
+    <line x1="465" y1="765" x2="465" y2="715"/>
+    <line x1="510" y1="800" x2="510" y2="680"/>
+    <line x1="555" y1="770" x2="555" y2="710"/>
+    <line x1="600" y1="805" x2="600" y2="675"/>
+    <line x1="645" y1="770" x2="645" y2="710"/>
+    <line x1="690" y1="800" x2="690" y2="680"/>
+    <line x1="735" y1="765" x2="735" y2="715"/>
+    <line x1="780" y1="790" x2="780" y2="690"/>
+    <line x1="825" y1="775" x2="825" y2="705"/>
+    <line x1="870" y1="760" x2="870" y2="720"/>
+  </g>
+
+  <text x="80" y="820" font-family="Poppins, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="10" fill="#ECC80B">SONIDO</text>
+  <text x="1120" y="820" text-anchor="end" font-family="Poppins, Arial, sans-serif" font-size="26" font-weight="600" letter-spacing="6" fill="#5A5A5A">NOVA STUDIOS</text>
+</svg>

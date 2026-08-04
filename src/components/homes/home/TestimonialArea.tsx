@@ -2,19 +2,36 @@
 import React from 'react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
- 
+
+const testimonials = [
+  {
+    quote: "“Trabajar con Nova Studios cambió la forma en que nuestra marca se presenta. Primero nos dieron una estrategia clara y después contenido que realmente suena a nosotros — y el crecimiento llegó. Todo conectado, todo con propósito.”",
+    name: "Cliente de Nova",
+    role: "Alianza de Marca",
+  },
+  {
+    quote: "“Nova no es un proveedor más: es un socio estratégico. Entendieron nuestro negocio antes de producir una sola pieza, y eso se nota en cada entrega. Recomendaciones honestas y calidad excepcional.”",
+    name: "Cliente de Nova",
+    role: "Empresa en Crecimiento",
+  },
+  {
+    quote: "“El Método Nova puso orden donde había ruido: posicionamiento claro, contenido consistente y resultados que podemos medir. La mejor decisión que tomamos para nuestra marca.”",
+    name: "Cliente de Nova",
+    role: "Marca Personal",
+  },
+];
 
 const TestimonialArea = () => {
   return (
     <>
-      <div className="testimonial-contact-wrapper">
+      <div id="testimonios" className="bg-secondary">
         <div className="divider"></div>
 
         <div className="container">
-          <div className="row">
+          <div className="row g-5 align-items-center">
             <div className="col-12 col-lg-6">
               <div className="section-heading">
-                <h2 className="mb-0">Testimonials</h2>
+                <h2 className="mb-0">Testimonios</h2>
               </div>
 
               <div className="divider-sm"></div>
@@ -30,7 +47,7 @@ const TestimonialArea = () => {
                       d="M46.2504 7.5C54.2359 7.5 60.0004 14.0926 60.0002 23.8541C59.9491 38.0369 49.2871 48.0646 33.9057 49.9903C32.4786 50.169 31.9284 48.1922 33.2425 47.6078C39.1445 44.9835 42.1253 41.6533 42.5103 38.3571C42.798 35.8944 41.4592 33.7372 39.7782 33.3333C35.4203 32.286 32.5004 26.859 32.5004 21.25C32.5004 13.6561 38.6565 7.5 46.2504 7.5Z"
                       fill="#ECC80B" />
                   </svg>
-                <Swiper 
+                <Swiper
                 loop={true}
                 spaceBetween={30}
                 autoplay={{
@@ -44,50 +61,18 @@ const TestimonialArea = () => {
                 modules={[Navigation, Autoplay]}
                 className="swiper testimonial-swiper">
 
-          
-
-                    <SwiperSlide className="swiper-slide">
-                      <p>“Working with Nova Studios changed how our brand shows up. They gave us a
-                        clear strategy first, then content that actually sounds like us — and the
-                        growth followed. Everything connected, everything with intention.”</p>
+                    {testimonials.map((item, i) => (
+                    <SwiperSlide className="swiper-slide" key={i}>
+                      <p>{item.quote}</p>
                       <div className="border-line"></div>
                       <div className="testimonial-info d-flex align-items-center">
                         <div>
-                          <h4>Nova Client</h4>
-                          <p className="mb-0">Brand Partner</p>
+                          <h4>{item.name}</h4>
+                          <p className="mb-0">{item.role}</p>
                         </div>
                       </div>
                     </SwiperSlide>
-
-
-                    <SwiperSlide className="swiper-slide">
-                      <p>“Working with Nova Studios changed how our brand shows up. They gave us a
-                        clear strategy first, then content that actually sounds like us — and the
-                        growth followed. Everything connected, everything with intention.”</p>
-                      <div className="border-line"></div>
-                      <div className="testimonial-info d-flex align-items-center">
-                        <div>
-                          <h4>Nova Client</h4>
-                          <p className="mb-0">Brand Partner</p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-
-
-                    <SwiperSlide className="swiper-slide">
-                      <p>“Working with Nova Studios changed how our brand shows up. They gave us a
-                        clear strategy first, then content that actually sounds like us — and the
-                        growth followed. Everything connected, everything with intention.”</p>
-                      <div className="border-line"></div>
-                      <div className="testimonial-info d-flex align-items-center">
-                        <div>
-                          <h4>Nova Client</h4>
-                          <p className="mb-0">Brand Partner</p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-               
-
+                    ))}
 
                   <div className="swiper-navigation-container">
                     <div className="swiper-button-prev">
@@ -112,28 +97,18 @@ const TestimonialArea = () => {
                 </Swiper>
               </div>
             </div>
+
+            <div className="col-12 col-lg-6">
+              <div className="about-us-thumbnail">
+                <img className="nova-card-img nova-float" src="/assets/img/nova/av-lens.svg" alt="Ilustración de un lente de cámara con diafragma" />              </div>
+            </div>
           </div>
         </div>
 
-
-        <div className="contact-wrapper" style={{ backgroundImage: 'url(/assets/img/nova/bg-dark.svg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-          <div className="contact-form">
-            <h3 className="mb-4">Get in Touch</h3>
-
-            <form onClick={e => e.preventDefault()} className="mt-3">
-              <input type="text" name="text" className="form-control" placeholder="Your Name" />
-              <input type="email" name="email" className="form-control" placeholder="Email Address" />
-              <textarea name="message" className="form-control" placeholder="Message" id="message"></textarea>
-              <button className="btn btn-primary mt-3"><span>SEND MESSAGE</span><span>SEND MESSAGE</span></button>
-            </form>
-          </div>
-        </div>
-
-        <div className="divider d-none d-lg-block"></div>
+        <div className="divider"></div>
       </div>
     </>
   );
 };
 
 export default TestimonialArea;
-

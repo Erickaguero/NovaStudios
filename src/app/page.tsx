@@ -1,10 +1,10 @@
- 
+
 import HomeOne from "@/components/homes/home";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-	title: "Nova Studios — Helping brands grow with intention",
-	description: "Nova Studios is a communication and advertising agency based in NYC – NJ. Strategy. Content. Growth.", 
+	title: "Nova Studios — Agencia de Crecimiento Creativo",
+	description: "Combinamos estrategia, narrativa y producción para crear experiencias de marca significativas y crecimiento sostenible. Creatividad con propósito.",
 };
 
 const index = () => {

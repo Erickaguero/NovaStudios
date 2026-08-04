@@ -3,10 +3,18 @@ import type { Metadata } from "next";
 import "../styles/index.css";
 
 export const metadata: Metadata = {
-  title: "Nova Studios — Helping brands grow with intention",
+  title: "Nova Studios — Agencia de Crecimiento Creativo",
   description:
-    "Nova Studios is a communication and advertising agency based in NYC – NJ. Strategy. Content. Growth. Let's work together.",
-  keywords: ["Nova Studios", "advertising agency", "communication agency", "branding", "content", "growth", "NYC", "NJ"],
+    "Nova Studios es una agencia de crecimiento creativo que combina estrategia, narrativa y producción para crear experiencias de marca significativas y crecimiento sostenible.",
+  keywords: [
+    "Nova Studios",
+    "agencia de crecimiento creativo",
+    "estrategia de marca",
+    "branding",
+    "producción audiovisual",
+    "marketing digital",
+    "desarrollo web",
+  ],
 };
 
 export default function RootLayout({
@@ -15,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body>
         {children}
       </body>

@@ -66,8 +66,8 @@ const HeaderOne = ({style_2} :any) => {
           <div className="container">
 
             <Link className="navbar-brand" href="/">
-              <img className="dark-logo" src="/assets/img/core-img/nova-logo-light.svg" alt="Nova Studios" />
-              <img className="light-logo" src="/assets/img/core-img/nova-logo.svg" alt="Nova Studios" />
+              <img className="dark-logo" src="/assets/img/core-img/logo-light.png" alt="Nova Studios" style={{ height: '42px', width: 'auto' }} />
+              <img className="light-logo" src="/assets/img/core-img/logo.png" alt="Nova Studios" style={{ height: '42px', width: 'auto' }} />
             </Link>
 
 
@@ -89,20 +89,10 @@ const HeaderOne = ({style_2} :any) => {
                       <ul className="vorix-dd-menu" style={{ display: navTitle === item.title ? 'block' : 'none' }}>
                         {item.sub_menus.map((sub_menu, index) => (
                           <li key={index} className="vorix-dd">
-                            <Link href={sub_menu.link} 
+                            <Link href={sub_menu.link}
                             onClick={() => openMobileMenu2(sub_menu.title)}
                             onMouseEnter={() =>  setNavTitle2(sub_menu.title)}
                             >{sub_menu.title}</Link>
-
-                            {'has_inner_dropdown' in sub_menu && sub_menu.has_inner_dropdown &&
-                              <ul className="vorix-dd-menu" style={{ display: navTitle2 === sub_menu.title ? 'block' : 'none' }}>
-                                {sub_menu?.inner_submenu?.map((inner_menu, inner_index) => (
-                                  <li key={inner_index}>
-                                    <Link href={inner_menu.link}>{inner_menu.title}</Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            }
                           </li>
                         ))}
                       </ul>
@@ -162,7 +152,7 @@ const HeaderOne = ({style_2} :any) => {
               </div>
               :
 
-              <Link className="btn btn-primary" href="/contact"><span>GET IN TOUCH</span><span>GET IN TOUCH</span></Link>
+              <Link className="btn btn-primary" href="/contacto"><span>HABLEMOS</span><span>HABLEMOS</span></Link>
 
               }
 

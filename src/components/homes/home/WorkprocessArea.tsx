@@ -1,67 +1,44 @@
 
 import React from 'react';
 
+const steps = [
+  { number: 1, title: "Descubrir", text: "Analizamos tu negocio, tu industria, tu audiencia y tu competencia para entender dónde estás y a dónde quieres llegar." },
+  { number: 2, title: "Definir", text: "Posicionamiento, mensaje central, pilares de contenido y métricas — un plan claro antes de producir cualquier pieza." },
+  { number: 3, title: "Diseñar", text: "Estrategia de marketing, dirección visual, calendario de contenido y recorrido del cliente, todo conectado como un sistema." },
+  { number: 4, title: "Entregar", text: "Producción, diseño, edición y lanzamiento — ejecución con calidad premium y respeto por los plazos." },
+  { number: 5, title: "Optimizar", text: "Medimos rendimiento, interacción y conversión, aprendemos de los datos y reiniciamos el ciclo para seguir creciendo." },
+];
+
 const WorkprocessArea = () => {
   return (
     <>
-      <div className="work-process-wrapper">
+      <div id="metodo" className="work-process-wrapper">
         <div className="divider"></div>
 
         <div className="container">
           <div className="row g-5">
             <div className="col-md-5 col-xl-6">
               <div className="section-heading">
-                
-                <h2 className="mb-4">How We Work</h2>
-                <p className="mb-5">Growth with intention doesn't happen by accident. We connect
-                  strategy, content and distribution into one system, so every piece your brand
-                  publishes has a job to do.</p>
-                <a href="/contact" className="btn btn-primary"><span>LET&apos;S WORK TOGETHER</span><span>LET&apos;S WORK TOGETHER</span></a>
+
+                <h2 className="mb-4">El Método Nova</h2>
+                <p className="mb-5">El crecimiento con propósito no sucede por accidente. Nuestro
+                  framework estratégico de 5 fases conecta estrategia, contenido y distribución en
+                  un solo sistema, para que cada pieza que publica tu marca tenga un trabajo que hacer.</p>
+                <a href="/contacto" className="btn btn-primary"><span>TRABAJEMOS JUNTOS</span><span>TRABAJEMOS JUNTOS</span></a>
               </div>
             </div>
 
             <div className="col-md-7 col-xl-6">
               <div className="work-process">
-
-                <div className="process-card">
-                  <div className="number">1</div>
-                  <div className="process-text">
-                    <h4>Discover</h4>
-                    <p className="mb-0">We dig into your brand, your audience and your market to
-                      understand where you are and where you want to go.</p>
+                {steps.map((step) => (
+                  <div className="process-card" key={step.number}>
+                    <div className="number">{step.number}</div>
+                    <div className="process-text">
+                      <h4>{step.title}</h4>
+                      <p className="mb-0">{step.text}</p>
+                    </div>
                   </div>
-                </div>
-
-
-                <div className="process-card">
-                  <div className="number">2</div>
-                  <div className="process-text">
-                    <h4>Design The Strategy</h4>
-                    <p className="mb-0">Direction, positioning and messaging first — a clear plan
-                      that gives every piece of content a purpose.</p>
-                  </div>
-                </div>
-
-
-                <div className="process-card">
-                  <div className="number">3</div>
-                  <div className="process-text">
-                    <h4>Create &amp; Publish</h4>
-                    <p className="mb-0">Content and campaigns built as a system — consistent,
-                      recognizable and made to connect, not to add noise.</p>
-                  </div>
-                </div>
-
-
-                <div className="process-card">
-                  <div className="number">4</div>
-                  <div className="process-text">
-                    <h4>Measure &amp; Grow</h4>
-                    <p className="mb-0">We track what matters, learn from the data and double down
-                      on what actually drives results.</p>
-                  </div>
-                </div>
-
+                ))}
               </div>
             </div>
           </div>

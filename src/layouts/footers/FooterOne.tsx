@@ -15,11 +15,11 @@ const FooterOne = ({ style_2 }: any) => {
               <div className="footer-card">
 
                 <a href="/">
-                  <img className="dark-logo" src="/assets/img/core-img/nova-logo-light.svg" alt="Nova Studios" />
-                  <img className="light-logo" src="/assets/img/core-img/nova-logo.svg" alt="Nova Studios" />
+                  <img className="dark-logo" src="/assets/img/core-img/logo-light.png" alt="Nova Studios" style={{ height: '42px', width: 'auto' }} />
+                  <img className="light-logo" src="/assets/img/core-img/logo.png" alt="Nova Studios" style={{ height: '42px', width: 'auto' }} />
                 </a>
 
-                <p className="mb-0">Helping brands grow with intention. Strategy. Content. Growth. 📍 NYC – NJ</p>
+                <p className="mb-0">El sistema operativo detrás del crecimiento creativo. Estrategia. Narrativa. Producción. 📍 Norteamérica y Latinoamérica</p>
 
                 <div className="social-nav">
                   <a href="https://www.instagram.com/nova.studios_co/" target="_blank" rel="noopener noreferrer">
@@ -36,14 +36,15 @@ const FooterOne = ({ style_2 }: any) => {
 
             <div className="col-12 col-md-6 col-xl">
               <div className="footer-card">
-                <h5 className="mb-0">Services</h5>
+                <h5 className="mb-0">Servicios</h5>
 
                 <ul className="footer-nav">
-                  <li><a href="/service">Brand Strategy</a></li>
-                  <li><a href="/service">Content Creation</a></li>
-                  <li><a href="/service">Social Media</a></li>
-                  <li><a href="/service">Paid Advertising</a></li>
-                  <li><a href="/service">Growth Marketing</a></li>
+                  <li><a href="/servicios#estrategia-de-marca">Estrategia de Marca</a></li>
+                  <li><a href="/servicios#branding">Branding</a></li>
+                  <li><a href="/servicios#produccion-audiovisual">Producción Audiovisual</a></li>
+                  <li><a href="/servicios#marketing-digital">Marketing Digital</a></li>
+                  <li><a href="/servicios#desarrollo-web">Desarrollo Web</a></li>
+                  <li><a href="/servicios#consultoria">Consultoría</a></li>
                 </ul>
               </div>
             </div>
@@ -51,13 +52,12 @@ const FooterOne = ({ style_2 }: any) => {
 
             <div className="col-12 col-md-6 col-xl">
               <div className="footer-card">
-                <h5 className="mb-0">Resources</h5>
+                <h5 className="mb-0">Recursos</h5>
 
                 <ul className="footer-nav">
-                  <li><a href="/about-us">About Us</a></li>
-                  <li><a href="/portfolio">Portfolio</a></li>
-                  <li><a href="/blog">Blog &amp; News</a></li>
-                  <li><a href="/contact">Let&apos;s Work Together</a></li>
+                  <li><a href="/nosotros">Nosotros</a></li>
+                  <li><a href="/planes">Planes</a></li>
+                  <li><a href="/contacto">Contacto</a></li>
                   <li><a href="https://www.instagram.com/nova.studios_co/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                 </ul>
               </div>
@@ -66,9 +66,9 @@ const FooterOne = ({ style_2 }: any) => {
 
             <div className="col-12 col-md-6 col-xl-4">
               <div className="footer-card">
-                <h5 className="mb-0">Subscribe</h5>
+                <h5 className="mb-0">Suscríbete</h5>
                 <form action="#" className="subscribe-form">
-                  <input type="email" className="form-control" placeholder="Email address" />
+                  <input type="email" className="form-control" placeholder="Correo electrónico" />
                   <button className="btn">
                     <span className="material-symbols-outlined">arrow_forward</span>
                     <span className="material-symbols-outlined">arrow_forward</span>
@@ -78,7 +78,7 @@ const FooterOne = ({ style_2 }: any) => {
                 <div className="form-check">
                   <input className="form-check-input" type="checkbox" id="flexCheckDefault" />
                   <label className="form-check-label ps-2" htmlFor="flexCheckDefault">
-                    I agree with the terms and conditions.
+                    Acepto los términos y condiciones.
                   </label>
                 </div>
 
@@ -102,8 +102,8 @@ const FooterOne = ({ style_2 }: any) => {
 
             <div className="col-12 col-lg-6">
               <div className="footer-bottom-nav">
-                <a href="#">Terms & conditions</a>
-                <a href="#">Privacy policy</a>
+                <a href="#">Términos y condiciones</a>
+                <a href="#">Aviso de privacidad</a>
               </div>
             </div>
           </div>

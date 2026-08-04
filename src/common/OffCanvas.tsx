@@ -9,8 +9,8 @@ const OffCanvas = ({openCanvas, setOpenCavas} : any) => {
 
         <div className="offcanvas-header">
           <div>
-            <img className="dark-logo" src="/assets/img/core-img/nova-logo-light.svg" alt="Nova Studios" />
-            <img className="light-logo" src="/assets/img/core-img/nova-logo.svg" alt="Nova Studios" />
+            <img className="dark-logo" src="/assets/img/core-img/logo-light.png" alt="Nova Studios" style={{ height: '42px', width: 'auto' }} />
+            <img className="light-logo" src="/assets/img/core-img/logo.png" alt="Nova Studios" style={{ height: '42px', width: 'auto' }} />
           </div>
 
           <button type="button" className="btn-close btn-close-white shadow-lg" data-bs-dismiss="offcanvas"
@@ -19,8 +19,8 @@ const OffCanvas = ({openCanvas, setOpenCavas} : any) => {
 
 
         <div className="offcanvas-body">
-          <h4 className="mb-3">Let&apos;s Work Together!</h4>
-          <p>Helping brands grow with intention. Strategy. Content. Growth.</p>
+          <h4 className="mb-3">Construyamos una estrategia</h4>
+          <p>Tu marca tiene potencial. Combinamos estrategia, narrativa y producción para crear crecimiento con propósito.</p>
 
 
           <div className="contact-info">
@@ -58,7 +58,7 @@ const OffCanvas = ({openCanvas, setOpenCavas} : any) => {
               </div>
 
               <div>
-                <p>Email address</p>
+                <p>Correo electrónico</p>
                 <h5 className="mb-0">hello@novastudios.agency</h5>
               </div>
             </div>
@@ -74,13 +74,13 @@ const OffCanvas = ({openCanvas, setOpenCavas} : any) => {
               </div>
 
               <div>
-                <p>Location</p>
-                <h5 className="mb-0">NYC – NJ</h5>
+                <p>Ubicación</p>
+                <h5 className="mb-0">Norteamérica y Latinoamérica</h5>
               </div>
             </div>
           </div>
 
-          <h4 className="mb-3">Social Networks</h4>
+          <h4 className="mb-3">Redes Sociales</h4>
 
 
           <div className="social-nav">
@@ -95,7 +95,7 @@ const OffCanvas = ({openCanvas, setOpenCavas} : any) => {
 
 
           <div className="cta-btn">
-            <Link href="/contact">Let's Talk <br /> with us</Link>
+            <Link href="/contacto">Hablemos <br /> de tu marca</Link>
           </div>
         </div>
       </div>

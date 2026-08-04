@@ -7,12 +7,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 
 const services = [
-  { icon: "lightbulb", title: "Brand Strategy", description: "Direction, positioning and messaging so every move your brand makes has a clear purpose." },
-  { icon: "movie", title: "Content Creation", description: "Photo, video and design systems that make your brand look clear and communicate better." },
-  { icon: "share", title: "Social Media", description: "Channel management and community building that turns attention into real connection." },
-  { icon: "ads_click", title: "Paid Advertising", description: "Campaigns built on strategy, not noise — designed to reach the right people at the right time." },
-  { icon: "design_services", title: "Creative Direction", description: "A consistent identity and visual voice across every platform your brand lives on." },
-  { icon: "trending_up", title: "Growth Marketing", description: "Measurable systems that connect strategy, content and distribution to real results." },
+  { icon: "lightbulb", title: "Estrategia de Marca", link: "/servicios#estrategia-de-marca", description: "Posicionamiento, mensaje y dirección para que cada movimiento de tu marca tenga un propósito claro." },
+  { icon: "design_services", title: "Branding", link: "/servicios#branding", description: "Identidad visual, tipografía y sistemas de color que hacen a tu marca clara, memorable y consistente." },
+  { icon: "movie", title: "Producción Audiovisual", link: "/servicios#produccion-audiovisual", description: "Fotografía, video y podcasts con mirada cinematográfica que generan conexión emocional." },
+  { icon: "ads_click", title: "Marketing Digital", link: "/servicios#marketing-digital", description: "Estrategia de redes, campañas y comunidad que convierten la atención en conexión real." },
+  { icon: "code", title: "Desarrollo Web", link: "/servicios#desarrollo-web", description: "Experiencias web que construyen credibilidad, comunican con claridad y convierten." },
+  { icon: "trending_up", title: "Consultoría", link: "/servicios#consultoria", description: "Acompañamiento estratégico y dirección creativa para escalar con propósito." },
 ];
 
 
@@ -24,14 +24,14 @@ const ServiceArea = () => {
 
   return (
     <>
-      <div className="latest-service-wrapper bg-secondary">
+      <div id="servicios" className="latest-service-wrapper bg-secondary">
         <div className="divider"></div>
 
         <div className="container">
           <div className="row g-4 align-items-end">
             <div className="col-12 col-sm-6">
               <div className="section-heading">
-                <h2 className="mb-0">What We Do At Nova</h2>
+                <h2 className="mb-0">Qué Hacemos en Nova</h2>
               </div>
             </div>
 
@@ -99,7 +99,7 @@ const ServiceArea = () => {
             className="swiper service-swiper">
             {services.map((item, i) => (
               <SwiperSlide key={i} className="swiper-slide">
-                <Link href="/service-details">
+                <Link href={item.link}>
                   <div
                     onMouseEnter={() => setActiveIndex(i)}
                     onMouseLeave={() => setActiveIndex(null)}

@@ -4,8 +4,8 @@ import Wrapper from '@/layouts/Wrapper';
 import React from 'react';
 
 export const metadata = {
-	title: "404 Error | Nova Studios",
-	description: "Nova Studios is a communication and advertising agency based in NYC – NJ. Strategy. Content. Growth.", 
+	title: "Error 404 — Nova Studios",
+	description: "La página que buscas no existe. Vuelve al inicio de Nova Studios, agencia de crecimiento creativo.",
 };
 
 
@@ -13,7 +13,7 @@ export const metadata = {
 const index = () => {
   return (
     <Wrapper>
-      <ErrorArea />      
+      <ErrorArea />
     </Wrapper>
   );
 };

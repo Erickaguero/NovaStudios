@@ -7,14 +7,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 const INSTAGRAM_URL = "https://www.instagram.com/nova.studios_co/";
 
 const feedPosts = [
-  { img: "/assets/img/nova/post-01.jpg", title: "Strategy", subtitle: "Direction & Positioning" },
-  { img: "/assets/img/nova/post-11.jpg", title: "Content", subtitle: "Systems, Not Noise" },
-  { img: "/assets/img/nova/post-07.jpg", title: "Identity", subtitle: "Innovation & Strategy" },
-  { img: "/assets/img/nova/post-17.jpg", title: "Growth", subtitle: "Publish Better, Not More" },
-  { img: "/assets/img/nova/post-04.jpg", title: "Creative", subtitle: "Ideas That Land" },
-  { img: "/assets/img/nova/post-09.jpg", title: "Community", subtitle: "Real Connection" },
-  { img: "/assets/img/nova/post-13.jpg", title: "Design", subtitle: "Visual Voice" },
-  { img: "/assets/img/nova/post-15.jpg", title: "Studio", subtitle: "Behind The Scenes" },
+  { img: "/assets/img/nova/post-01.jpg", title: "Estrategia", subtitle: "Dirección y Posicionamiento" },
+  { img: "/assets/img/nova/post-11.jpg", title: "Contenido", subtitle: "Sistemas, No Ruido" },
+  { img: "/assets/img/nova/post-07.jpg", title: "Identidad", subtitle: "Innovación y Estrategia" },
+  { img: "/assets/img/nova/post-17.jpg", title: "Crecimiento", subtitle: "Publicar Mejor, No Más" },
+  { img: "/assets/img/nova/post-04.jpg", title: "Creatividad", subtitle: "Ideas Que Conectan" },
+  { img: "/assets/img/nova/post-09.jpg", title: "Comunidad", subtitle: "Conexión Real" },
+  { img: "/assets/img/nova/post-13.jpg", title: "Diseño", subtitle: "Voz Visual" },
+  { img: "/assets/img/nova/post-15.jpg", title: "Estudio", subtitle: "Detrás de Cámaras" },
 ];
 
 const ArrowIcon = () => (
@@ -28,20 +28,20 @@ const ArrowIcon = () => (
 const ProjectsArea = () => {
   return (
     <>
-      <div className="projects-wrapper bg-secondary">
+      <div id="proyectos" className="projects-wrapper bg-secondary">
         <div className="divider"></div>
 
         <div className="container">
           <div className="row g-4 align-items-end justify-content-between">
             <div className="col-12 col-md-6 col-lg-5">
               <div className="section-heading">
-                <h2 className="mb-0">From Our Feed</h2>
+                <h2 className="mb-0">Proyectos Destacados</h2>
               </div>
             </div>
 
             <div className="col-12 col-md-6 col-lg-4">
               <div className="text-md-end">
-                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary"><span>FOLLOW US</span><span>FOLLOW US</span></a>
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary"><span>SÍGUENOS EN INSTAGRAM</span><span>SÍGUENOS EN INSTAGRAM</span></a>
               </div>
             </div>
           </div>

@@ -1,13 +1,16 @@
- 
-import CtaArea from "./CtaArea";
+
 import HeroArea from "./HeroArea";
-import Cta2Area from "./Cta2Area";
-import BlogArea from "./BlogArea";
+import TickerArea from "./TickerArea";
+import ClientsArea from "./ClientsArea";
 import AboutArea from "./AboutArea";
 import ServiceArea from "./ServiceArea";
-import ProjectsArea from "./ProjectsArea";
 import WorkprocessArea from "./WorkprocessArea";
+import WhyNovaArea from "./WhyNovaArea";
+import ProjectsArea from "./ProjectsArea";
+import ResultsArea from "./ResultsArea";
 import TestimonialArea from "./TestimonialArea";
+import ContactHomeArea from "./ContactHomeArea";
+import FaqNova from "@/common/FaqNova";
 import HeaderOne from "@/layouts/headers/HeaderOne";
 import FooterOne from "@/layouts/footers/FooterOne";
 
@@ -16,19 +19,20 @@ const HomeOne = () => {
 		<>
 			<HeaderOne />
       <HeroArea />
-      <CtaArea />
-      <ServiceArea />
+      <TickerArea />
+      <ClientsArea />
       <AboutArea />
-      <ProjectsArea />
+      <ServiceArea />
       <WorkprocessArea />
+      <WhyNovaArea />
+      <ProjectsArea />
+      <ResultsArea />
       <TestimonialArea />
-      <BlogArea />
-      <Cta2Area />
+      <FaqNova />
+      <ContactHomeArea />
       <FooterOne />
 		</>
 	);
 };
 
 export default HomeOne;
-
-

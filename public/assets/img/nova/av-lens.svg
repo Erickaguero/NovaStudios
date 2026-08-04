@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <pattern id="ht" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="3.2" fill="#1D1D1D"/>
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#ECC80B" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#ECC80B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="900" fill="#0E0E0E"/>
+  <rect width="1200" height="900" fill="url(#ht)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- lens / aperture -->
+  <g transform="translate(600 420)">
+    <circle cx="0" cy="0" r="270" fill="#161616" stroke="#FEFEFE" stroke-width="7"/>
+    <circle cx="0" cy="0" r="235" fill="none" stroke="#ECC80B" stroke-width="6" opacity="0.7"/>
+    <circle cx="0" cy="0" r="205" fill="none" stroke="#ECC80B" stroke-width="4" opacity="0.4"/>
+    <!-- aperture blades -->
+    <g stroke="#ECC80B" stroke-width="8" fill="none">
+      <path d="M 0 -180 L 156 -90"/>
+      <path d="M 156 -90 L 156 90"/>
+      <path d="M 156 90 L 0 180"/>
+      <path d="M 0 180 L -156 90"/>
+      <path d="M -156 90 L -156 -90"/>
+      <path d="M -156 -90 L 0 -180"/>
+    </g>
+    <circle cx="0" cy="0" r="70" fill="#ECC80B"/>
+    <circle cx="30" cy="-25" r="16" fill="#FEFEFE"/>
+    <!-- focus marks -->
+    <g stroke="#FEFEFE" stroke-width="5" opacity="0.6">
+      <line x1="0" y1="-300" x2="0" y2="-330"/>
+      <line x1="300" y1="0" x2="330" y2="0"/>
+      <line x1="0" y1="300" x2="0" y2="330"/>
+      <line x1="-300" y1="0" x2="-330" y2="0"/>
+    </g>
+  </g>
+
+  <text x="80" y="820" font-family="Poppins, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="10" fill="#ECC80B">ENFOQUE</text>
+  <text x="1120" y="820" text-anchor="end" font-family="Poppins, Arial, sans-serif" font-size="26" font-weight="600" letter-spacing="6" fill="#5A5A5A">NOVA STUDIOS</text>
+</svg>

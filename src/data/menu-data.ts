@@ -2,90 +2,81 @@
 const menu_data = [
   {
     id: 1,
-    title: "Home",
+    title: "Inicio",
     link: "/",
-    has_dropdown: false,
-    sub_menus: [],
+    has_dropdown: true,
+    sub_menus: [
+      { link: "/#banner", title: "Banner Principal", has_inner_dropdown: false },
+      { link: "/#clientes", title: "Clientes", has_inner_dropdown: false },
+      { link: "/#quienes-somos", title: "Quiénes Somos", has_inner_dropdown: false },
+      { link: "/#servicios", title: "Servicios", has_inner_dropdown: false },
+      { link: "/#metodo", title: "Método", has_inner_dropdown: false },
+      { link: "/#por-que-nova", title: "¿Por Qué Nova?", has_inner_dropdown: false },
+      { link: "/#proyectos", title: "Proyectos Destacados", has_inner_dropdown: false },
+      { link: "/#resultados", title: "Resultados", has_inner_dropdown: false },
+      { link: "/#testimonios", title: "Testimonios", has_inner_dropdown: false },
+      { link: "/#faq", title: "Preguntas Frecuentes", has_inner_dropdown: false },
+      { link: "/#contacto", title: "Contacto", has_inner_dropdown: false },
+    ],
   },
   {
     id: 2,
-    title: "Pages",
-    link: "#",
+    title: "Nosotros",
+    link: "/nosotros",
     has_dropdown: true,
     sub_menus: [
-      {
-        link: "/about-us",
-        title: "About Us",
-        has_inner_dropdown: false,
-      },
-      {
-        link: "#",
-        title: "Service",
-        has_inner_dropdown: true,
-        inner_submenu: [
-          { link: "/service", title: "Service" },
-          { link: "/service-details", title: "Service Details" },
-
-        ]
-      },
-      {
-        link: "#",
-        title: "Authentification",
-        has_inner_dropdown: true,
-        inner_submenu: [
-          { link: "/register", title: "Register" }, 
-          { link: "/login", title: "Login" }, 
-
-        ]
-      },
-      {
-        link: "/pricing-plan",
-        title: "Pricing Plan",
-        has_inner_dropdown: false, 
-      },
-      {
-        link: "/faq",
-        title: "FAQ",
-        has_inner_dropdown: false, 
-      },
-      {
-        link: "/team",
-        title: "Team",
-        has_inner_dropdown: false, 
-      },
-      {
-        link: "/team-details",
-        title: "Team Details",
-        has_inner_dropdown: false, 
-      },
-      {
-        link: "/404",
-        title: "404 - Error",
-        has_inner_dropdown: false, 
-      },
-    ]
+      { link: "/nosotros#quienes-somos", title: "Quiénes Somos", has_inner_dropdown: false },
+      { link: "/nosotros#historia", title: "Nuestra Historia", has_inner_dropdown: false },
+      { link: "/nosotros#mision", title: "Misión", has_inner_dropdown: false },
+      { link: "/nosotros#vision", title: "Visión", has_inner_dropdown: false },
+      { link: "/nosotros#valores", title: "Valores", has_inner_dropdown: false },
+      { link: "/nosotros#filosofia", title: "Filosofía", has_inner_dropdown: false },
+      { link: "/nosotros#metodo", title: "Método", has_inner_dropdown: false },
+      { link: "/nosotros#equipo", title: "Equipo", has_inner_dropdown: false },
+      { link: "/nosotros#cultura", title: "Cultura", has_inner_dropdown: false },
+    ],
   },
   {
     id: 3,
-    title: "Portfolio",
-    link: "#",
+    title: "Servicios",
+    link: "/servicios",
     has_dropdown: true,
     sub_menus: [
-      { link: "/portfolio", title: "Portfolio", }, 
-      { link: "/portfolio-details", title: "Portfolio Details", }, 
-    ]
+      { link: "/servicios#estrategia-de-marca", title: "Estrategia de Marca", has_inner_dropdown: false },
+      { link: "/servicios#branding", title: "Branding", has_inner_dropdown: false },
+      { link: "/servicios#produccion-audiovisual", title: "Producción Audiovisual", has_inner_dropdown: false },
+      { link: "/servicios#marketing-digital", title: "Marketing Digital", has_inner_dropdown: false },
+      { link: "/servicios#desarrollo-web", title: "Desarrollo Web", has_inner_dropdown: false },
+      { link: "/servicios#consultoria", title: "Consultoría", has_inner_dropdown: false },
+    ],
   },
   {
     id: 4,
-    title: "Blog",
-    link: "#",
+    title: "Planes",
+    link: "/planes",
     has_dropdown: true,
     sub_menus: [
-      { link: "/blog", title: "Blog", }, 
-      { link: "/blog-details", title: "Blog Details", }, 
-    ]
+      { link: "/planes#comparativa", title: "Comparativa", has_inner_dropdown: false },
+      { link: "/planes#essential", title: "Essential", has_inner_dropdown: false },
+      { link: "/planes#growth", title: "Growth", has_inner_dropdown: false },
+      { link: "/planes#scale", title: "Scale", has_inner_dropdown: false },
+      { link: "/planes#personalizados", title: "Personalizados", has_inner_dropdown: false },
+      { link: "/planes#proceso", title: "Proceso de Contratación", has_inner_dropdown: false },
+    ],
   },
-
+  {
+    id: 5,
+    title: "Contacto",
+    link: "/contacto",
+    has_dropdown: true,
+    sub_menus: [
+      { link: "/contacto#formulario", title: "Formulario", has_inner_dropdown: false },
+      { link: "/contacto#informacion", title: "Información", has_inner_dropdown: false },
+      { link: "/contacto#agenda", title: "Agenda una Reunión", has_inner_dropdown: false },
+      { link: "/contacto#faq", title: "Preguntas Frecuentes", has_inner_dropdown: false },
+      { link: "/contacto#redes", title: "Redes Sociales", has_inner_dropdown: false },
+    ],
+  },
 ]
 
 export default menu_data

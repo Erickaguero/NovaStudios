@@ -10,3 +10,86 @@
 @import url("../../public/assets/css/animate.css");
 @import url("../../public/assets/css/bootstrap.min.css");
 @import url("../../public/assets/css/style.css");
+
+/* ===== Nova Studios — animaciones y detalles audiovisuales ===== */
+
+@keyframes nova-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes nova-float-delay {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+@keyframes nova-blink {
+  0%, 55% { opacity: 1; }
+  56%, 100% { opacity: 0.15; }
+}
+
+@keyframes nova-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.nova-float { animation: nova-float 6s ease-in-out infinite; }
+.nova-float-delay { animation: nova-float-delay 7s ease-in-out infinite; }
+.nova-spin { animation: nova-spin 40s linear infinite; }
+
+.nova-card-img {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.nova-card-img:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.nova-rec-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 14, 14, 0.75);
+  color: #FEFEFE;
+  border: 1px solid rgba(254, 254, 254, 0.25);
+  border-radius: 50rem;
+  padding: 6px 16px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  z-index: 2;
+}
+.nova-rec-badge::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #FF3B30;
+  animation: nova-blink 1.4s steps(1) infinite;
+}
+
+.nova-ticker {
+  background: #ECC80B;
+  overflow: hidden;
+}
+.nova-ticker .ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding: 18px 28px 18px 0;
+  color: #0E0E0E;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.nova-ticker .ticker-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #0E0E0E;
+  display: inline-block;
+}

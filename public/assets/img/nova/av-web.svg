@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <pattern id="ht" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="3.2" fill="#1D1D1D"/>
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#ECC80B" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#ECC80B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="900" fill="#0E0E0E"/>
+  <rect width="1200" height="900" fill="url(#ht)"/>
+  <rect width="1200" height="900" fill="url(#glow)"/>
+
+  <!-- browser window -->
+  <g transform="translate(600 430)">
+    <rect x="-360" y="-260" width="720" height="520" rx="24" fill="#161616" stroke="#ECC80B" stroke-width="7"/>
+    <line x1="-360" y1="-190" x2="360" y2="-190" stroke="#ECC80B" stroke-width="6"/>
+    <circle cx="-310" cy="-225" r="12" fill="#ECC80B"/>
+    <circle cx="-270" cy="-225" r="12" fill="#FEFEFE" opacity="0.7"/>
+    <circle cx="-230" cy="-225" r="12" fill="#FEFEFE" opacity="0.4"/>
+    <rect x="-150" y="-243" width="420" height="36" rx="18" fill="none" stroke="#FEFEFE" stroke-width="5" opacity="0.5"/>
+
+    <!-- video player -->
+    <rect x="-310" y="-140" width="400" height="240" rx="16" fill="#0E0E0E" stroke="#FEFEFE" stroke-width="5" opacity="0.9"/>
+    <circle cx="-110" cy="-20" r="52" fill="#ECC80B"/>
+    <path d="M -126 -48 L -126 8 L -78 -20 Z" fill="#0E0E0E"/>
+
+    <!-- text lines -->
+    <rect x="130" y="-130" width="200" height="26" rx="13" fill="#ECC80B"/>
+    <rect x="130" y="-80" width="180" height="18" rx="9" fill="#FEFEFE" opacity="0.6"/>
+    <rect x="130" y="-45" width="200" height="18" rx="9" fill="#FEFEFE" opacity="0.4"/>
+    <rect x="130" y="-10" width="150" height="18" rx="9" fill="#FEFEFE" opacity="0.4"/>
+    <rect x="130" y="45" width="160" height="44" rx="22" fill="#ECC80B"/>
+
+    <!-- bottom cards -->
+    <rect x="-310" y="130" width="200" height="90" rx="14" fill="none" stroke="#ECC80B" stroke-width="5" opacity="0.8"/>
+    <rect x="-90" y="130" width="200" height="90" rx="14" fill="none" stroke="#FEFEFE" stroke-width="5" opacity="0.5"/>
+    <rect x="130" y="130" width="200" height="90" rx="14" fill="none" stroke="#ECC80B" stroke-width="5" opacity="0.8"/>
+    <!-- cursor -->
+    <path d="M 250 200 L 250 260 L 268 244 L 282 276 L 298 268 L 284 238 L 306 236 Z" fill="#FEFEFE"/>
+  </g>
+
+  <text x="80" y="820" font-family="Poppins, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="10" fill="#ECC80B">WEB</text>
+  <text x="1120" y="820" text-anchor="end" font-family="Poppins, Arial, sans-serif" font-size="26" font-weight="600" letter-spacing="6" fill="#5A5A5A">NOVA STUDIOS</text>
+</svg>
