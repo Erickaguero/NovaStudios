@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { getSectionContent } from '@/lib/content';
 
 const faqs = [
   {
@@ -24,7 +25,8 @@ const faqs = [
   },
 ];
 
-const FaqNova = ({ style_2, id = "faq" }: any) => {
+const FaqNova = async ({ style_2, id = "faq" }: any) => {
+  const c = await getSectionContent("faq");
   return (
     <>
       <div id={id} className={`faq-wrapper ${style_2 ? 'bg-secondary' : ''}`}>
@@ -41,7 +43,7 @@ const FaqNova = ({ style_2, id = "faq" }: any) => {
 
 
               <div className="faq-image">
-                <img src="/assets/img/nova/av-strategy.svg" alt="Ilustración de un storyboard con foco estratégico" />
+                <img src={c.imagen} alt="Ilustración de un storyboard con foco estratégico" />
 
 
                 <div className="faq-info d-flex align-items-center">

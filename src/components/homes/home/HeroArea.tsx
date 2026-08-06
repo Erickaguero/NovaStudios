@@ -63,9 +63,9 @@ const HeroArea = async () => {
                   </div>
                 </div>
                 <div className="col-6 d-flex flex-column" style={{ gap: '16px' }}>
-                  <img className="nova-card-img nova-float" src="/assets/img/nova/av-clapper.svg" alt="Ilustración de una claqueta de cine"
+                  <img className="nova-card-img nova-float" src={c.imagen_tarjeta_1} alt="Ilustración de una claqueta de cine"
                     style={{ width: '100%', height: '50%', objectFit: 'cover', borderRadius: '20px' }} />
-                  <img className="nova-card-img nova-float-delay" src="/assets/img/nova/av-waveform.svg" alt="Ilustración de una línea de tiempo de edición de video"
+                  <img className="nova-card-img nova-float-delay" src={c.imagen_tarjeta_2} alt="Ilustración de una línea de tiempo de edición de video"
                     style={{ width: '100%', height: '50%', objectFit: 'cover', borderRadius: '20px' }} />
                 </div>
               </div>

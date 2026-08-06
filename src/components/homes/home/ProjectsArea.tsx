@@ -6,17 +6,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 const INSTAGRAM_URL = "https://www.instagram.com/nova.studios_co/";
 
-const feedPosts = [
-  { img: "/assets/img/nova/post-01.jpg", title: "Estrategia", subtitle: "Dirección y Posicionamiento" },
-  { img: "/assets/img/nova/post-11.jpg", title: "Contenido", subtitle: "Sistemas, No Ruido" },
-  { img: "/assets/img/nova/post-07.jpg", title: "Identidad", subtitle: "Innovación y Estrategia" },
-  { img: "/assets/img/nova/post-17.jpg", title: "Crecimiento", subtitle: "Publicar Mejor, No Más" },
-  { img: "/assets/img/nova/post-04.jpg", title: "Creatividad", subtitle: "Ideas Que Conectan" },
-  { img: "/assets/img/nova/post-09.jpg", title: "Comunidad", subtitle: "Conexión Real" },
-  { img: "/assets/img/nova/post-13.jpg", title: "Diseño", subtitle: "Voz Visual" },
-  { img: "/assets/img/nova/post-15.jpg", title: "Estudio", subtitle: "Detrás de Cámaras" },
-];
-
 const ArrowIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
     <path
@@ -25,7 +14,12 @@ const ArrowIcon = () => (
   </svg>
 );
 
-const ProjectsArea = () => {
+const ProjectsArea = ({ content }: { content: Record<string, string> }) => {
+  const feedPosts = Array.from({ length: 8 }, (_, i) => ({
+    img: content[`post_${i + 1}_imagen`],
+    title: content[`post_${i + 1}_titulo`],
+    subtitle: content[`post_${i + 1}_subtitulo`],
+  }));
   return (
     <>
       <div id="proyectos" className="projects-wrapper bg-secondary">

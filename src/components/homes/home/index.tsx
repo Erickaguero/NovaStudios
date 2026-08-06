@@ -13,8 +13,16 @@ import ContactHomeArea from "./ContactHomeArea";
 import FaqNova from "@/common/FaqNova";
 import HeaderOne from "@/layouts/headers/HeaderOne";
 import FooterOne from "@/layouts/footers/FooterOne";
+import { getSectionContent } from "@/lib/content";
 
-const HomeOne = () => {
+const HomeOne = async () => {
+	// Los carruseles son componentes de cliente: su contenido editable
+	// se carga aquí (en el servidor) y se les pasa como props.
+	const [proyectos, testimonios] = await Promise.all([
+		getSectionContent("proyectos"),
+		getSectionContent("testimonios"),
+	]);
+
 	return (
 		<>
 			<HeaderOne />
@@ -25,9 +33,9 @@ const HomeOne = () => {
       <ServiceArea />
       <WorkprocessArea />
       <WhyNovaArea />
-      <ProjectsArea />
+      <ProjectsArea content={proyectos} />
       <ResultsArea />
-      <TestimonialArea />
+      <TestimonialArea imagen={testimonios.imagen} />
       <FaqNova />
       <ContactHomeArea />
       <FooterOne />

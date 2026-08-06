@@ -21,7 +21,7 @@ const testimonials = [
   },
 ];
 
-const TestimonialArea = () => {
+const TestimonialArea = ({ imagen }: { imagen?: string }) => {
   return (
     <>
       <div id="testimonios" className="bg-secondary">
@@ -100,7 +100,7 @@ const TestimonialArea = () => {
 
             <div className="col-12 col-lg-6">
               <div className="about-us-thumbnail">
-                <img className="nova-card-img nova-float" src="/assets/img/nova/av-lens.svg" alt="Ilustración de un lente de cámara con diafragma" />              </div>
+                <img className="nova-card-img nova-float" src={imagen || "/assets/img/nova/av-lens.svg"} alt="Ilustración de un lente de cámara con diafragma" />              </div>
             </div>
           </div>
         </div>

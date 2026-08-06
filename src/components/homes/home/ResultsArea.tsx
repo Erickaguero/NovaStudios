@@ -1,7 +1,9 @@
 
 import React from 'react';
+import { getSectionContent } from '@/lib/content';
 
-const ResultsArea = () => {
+const ResultsArea = async () => {
+  const c = await getSectionContent('resultados');
   return (
     <>
       <div id="resultados" className="cta-wrap"
@@ -12,7 +14,7 @@ const ResultsArea = () => {
           <div className="row g-4 justify-content-between align-items-stretch">
             <div className="col-12 col-lg-5 col-xl-5 col-xxl-6">
               <div className="cta-side-image">
-                <img className="nova-card-img" src="/assets/img/nova/edificio-02.jpg" alt="Entrada principal del edificio de Nova Studios" />
+                <img className="nova-card-img" src={c.imagen} alt="Entrada principal del edificio de Nova Studios" />
               </div>
             </div>
 
