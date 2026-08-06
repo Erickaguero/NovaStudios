@@ -4,6 +4,7 @@ import HeaderOne from '@/layouts/headers/HeaderOne';
 import FooterOne from '@/layouts/footers/FooterOne';
 import Link from 'next/link';
 import React from 'react';
+import { getTeamMembers } from '@/lib/team';
 
 const valores = [
   { title: "La Excelencia Es Nuestro Estándar", text: "La calidad está en los detalles. Cada entrega refleja el nivel premium que tu marca merece." },
@@ -39,7 +40,9 @@ const CheckIcon = () => (
   </svg>
 );
 
-const Nosotros = () => {
+const Nosotros = async () => {
+  const equipo = await getTeamMembers();
+
   return (
     <>
       <HeaderOne />
@@ -264,25 +267,17 @@ const Nosotros = () => {
           <div className="divider-sm"></div>
 
           <div className="row g-4 g-lg-5 justify-content-center">
-            <div className="col-12 col-sm-6 col-lg-4">
-              <div className="team-card">
-                <img src="/assets/img/nova/team-gamaliel.jpg" alt="Gamaliel Noriega, fundador y director creativo de Nova Studios" />
-                <div className="team-info">
-                  <h4>Gamaliel Noriega</h4>
-                  <p className="mb-0">Fundador y Director Creativo</p>
+            {equipo.map((miembro, i) => (
+              <div className="col-12 col-sm-6 col-lg-4" key={i}>
+                <div className="team-card">
+                  <img src={miembro.imagen_url} alt={`${miembro.nombre}, ${miembro.rol} de Nova Studios`} />
+                  <div className="team-info">
+                    <h4>{miembro.nombre}</h4>
+                    <p className="mb-0">{miembro.rol}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div className="col-12 col-sm-6 col-lg-4">
-              <div className="team-card">
-                <img src="/assets/img/nova/team-stephanie.jpg" alt="Stephanie Salas, co-fundadora y directora de operaciones de Nova Studios" />
-                <div className="team-info">
-                  <h4>Stephanie Salas</h4>
-                  <p className="mb-0">Co-Fundadora y Directora de Operaciones</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 

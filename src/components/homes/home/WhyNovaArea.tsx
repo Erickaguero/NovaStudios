@@ -1,14 +1,9 @@
 
 import Link from 'next/link';
 import React from 'react';
+import { getSectionContent } from '@/lib/content';
 
-const reasons = [
-  { icon: "workspace_premium", title: "La Excelencia Es Nuestro Estándar", text: "La calidad está en los detalles: cada entrega refleja el nivel premium que tu marca merece." },
-  { icon: "lightbulb", title: "Estrategia Antes que Ejecución", text: "Todo gran trabajo empieza con entendimiento. Primero pensamos, después producimos." },
-  { icon: "favorite", title: "Personas Antes que Proyectos", text: "Construimos relaciones basadas en confianza, comunicación clara y cuidado genuino." },
-  { icon: "handshake", title: "Crecimiento a Través de Alianzas", text: "Nuestros clientes son socios, no transacciones. Crecemos junto a las marcas que acompañamos." },
-  { icon: "settings_suggest", title: "Los Sistemas Crean Excelencia", text: "Procesos claros que permiten calidad consistente y escalar con propósito." },
-];
+const reasonIcons = ["workspace_premium", "lightbulb", "favorite", "handshake", "settings_suggest"];
 
 const cardStyle: React.CSSProperties = {
   background: '#0E0E0E',
@@ -18,7 +13,13 @@ const cardStyle: React.CSSProperties = {
   height: '100%',
 };
 
-const WhyNovaArea = () => {
+const WhyNovaArea = async () => {
+  const c = await getSectionContent('por_que_nova');
+  const reasons = reasonIcons.map((icon, i) => ({
+    icon,
+    title: c[`card_${i + 1}_titulo`],
+    text: c[`card_${i + 1}_texto`],
+  }));
   return (
     <>
       <div id="por-que-nova" className="bg-secondary">
@@ -28,10 +29,8 @@ const WhyNovaArea = () => {
           <div className="row justify-content-center">
             <div className="col-12 col-lg-8 text-center">
               <div className="section-heading">
-                <h2 className="mb-4">¿Por Qué Nova?</h2>
-                <p className="mb-0">Porque no somos un proveedor de producción: somos un socio
-                  estratégico. A diferencia de las agencias enfocadas solo en ejecución, integramos
-                  la creatividad con el pensamiento de negocio. Cinco principios lo hacen posible:</p>
+                <h2 className="mb-4">{c.titulo}</h2>
+                <p className="mb-0">{c.parrafo}</p>
               </div>
             </div>
           </div>
@@ -51,9 +50,9 @@ const WhyNovaArea = () => {
 
             <div className="col-12 col-md-6 col-xl-4">
               <div style={{ ...cardStyle, background: '#ECC80B', border: 'none', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
-                <h4 style={{ color: '#0E0E0E' }}>¿Listo para crecer con propósito?</h4>
-                <p className="mb-4" style={{ color: '#0E0E0E' }}>Construyamos una estrategia para tu marca.</p>
-                <Link href="/contacto" className="btn btn-dark"><span>HABLEMOS</span><span>HABLEMOS</span></Link>
+                <h4 style={{ color: '#0E0E0E' }}>{c.cta_titulo}</h4>
+                <p className="mb-4" style={{ color: '#0E0E0E' }}>{c.cta_texto}</p>
+                <Link href="/contacto" className="btn btn-dark"><span>{c.cta_boton}</span><span>{c.cta_boton}</span></Link>
               </div>
             </div>
           </div>

@@ -1,8 +1,10 @@
 
 import Link from 'next/link';
 import React from 'react';
+import { getSectionContent } from '@/lib/content';
 
-const HeroArea = () => {
+const HeroArea = async () => {
+  const c = await getSectionContent('hero');
   return (
     <>
       <section id="banner" className="hero-wrapper">
@@ -25,7 +27,7 @@ const HeroArea = () => {
                   textTransform: 'uppercase',
                   marginBottom: '24px',
                 }}>
-                Agencia de Crecimiento Creativo
+                {c.badge}
               </span>
 
               <h1 className="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms"
@@ -36,19 +38,18 @@ const HeroArea = () => {
                   letterSpacing: '-2px',
                   marginBottom: '24px',
                 }}>
-                Tu marca tiene <span style={{ color: '#ECC80B' }}>potencial</span>.<br />
-                Nosotros lo convertimos en crecimiento.
+                {c.titulo_1} <span style={{ color: '#ECC80B' }}>{c.titulo_destacado}</span>.<br />
+                {c.titulo_2}
               </h1>
 
               <p className="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="700ms"
                 style={{ fontSize: '18px', lineHeight: 1.7, maxWidth: '520px', marginBottom: '32px' }}>
-                Estrategia, narrativa y producción trabajando como un solo sistema para
-                construir marcas poderosas, historias significativas y resultados medibles.
+                {c.parrafo}
               </p>
 
               <div className="d-flex flex-wrap wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="900ms" style={{ gap: '16px' }}>
-                <Link href="/contacto" className="btn btn-primary"><span>AGENDA UNA CONSULTA</span><span>AGENDA UNA CONSULTA</span></Link>
-                <Link href="/servicios" className="btn btn-dark"><span>NUESTROS SERVICIOS</span><span>NUESTROS SERVICIOS</span></Link>
+                <Link href="/contacto" className="btn btn-primary"><span>{c.boton_primario}</span><span>{c.boton_primario}</span></Link>
+                <Link href="/servicios" className="btn btn-dark"><span>{c.boton_secundario}</span><span>{c.boton_secundario}</span></Link>
               </div>
             </div>
 
@@ -57,7 +58,7 @@ const HeroArea = () => {
                 <div className="col-6">
                   <div style={{ position: 'relative', height: '100%' }}>
                     <span className="nova-rec-badge">REC</span>
-                    <img className="nova-card-img" src="/assets/img/nova/cta-side.jpg" alt="Equipo de camarógrafos de Nova Studios grabando un evento en vivo"
+                    <img className="nova-card-img" src={c.imagen} alt="Equipo de camarógrafos de Nova Studios grabando un evento en vivo"
                       style={{ width: '100%', height: '100%', minHeight: '340px', objectFit: 'cover', borderRadius: '20px' }} />
                   </div>
                 </div>

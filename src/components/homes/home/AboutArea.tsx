@@ -1,6 +1,7 @@
 
 import Link from 'next/link';
 import React from 'react';
+import { getSectionContent } from '@/lib/content';
 
 const CheckIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
@@ -10,7 +11,8 @@ const CheckIcon = () => (
   </svg>
 );
 
-const AboutArea = () => {
+const AboutArea = async () => {
+  const c = await getSectionContent('quienes_somos');
   return (
     <>
       <div id="quienes-somos" className="about-us-wrapper">
@@ -21,7 +23,7 @@ const AboutArea = () => {
 
             <div className="col-12 col-md-6">
               <div className="about-us-thumbnail">
-                <img className="nova-card-img" src="/assets/img/nova/edificio-01.jpg" alt="Fachada del edificio de Nova Studios iluminado al atardecer" />
+                <img className="nova-card-img" src={c.imagen} alt="Fachada del edificio de Nova Studios iluminado al atardecer" />
               </div>
             </div>
 
@@ -29,27 +31,24 @@ const AboutArea = () => {
             <div className="col-12 col-md-6">
               <div className="about-us-text-content ps-md-4">
                 <div className="section-heading">
-                  <h2 className="mb-0">Quiénes Somos</h2>
+                  <h2 className="mb-0">{c.titulo}</h2>
                 </div>
-                <p className="mb-0">Nova Studios es una agencia de crecimiento creativo que combina
-                  estrategia, narrativa y producción para crear experiencias de marca significativas
-                  y crecimiento sostenible. A diferencia de las agencias enfocadas solo en ejecución,
-                  integramos la producción creativa con el pensamiento estratégico empresarial.</p>
+                <p className="mb-0">{c.parrafo}</p>
 
                 <ul className="ps-0 list-unstyled mb-0">
                   <li>
                     <CheckIcon />
-                    Estrategia — dirección, posicionamiento y propósito</li>
+                    {c.punto_1}</li>
                   <li>
                     <CheckIcon />
-                    Narrativa — historias que conectan, no ruido</li>
+                    {c.punto_2}</li>
                   <li>
                     <CheckIcon />
-                    Producción — calidad premium en cada detalle</li>
+                    {c.punto_3}</li>
                 </ul>
 
                 <div>
-                  <Link href="/nosotros" className="btn btn-primary mt-1"><span>CONOCE MÁS DE NOSOTROS</span><span>CONOCE MÁS DE NOSOTROS</span></Link>
+                  <Link href="/nosotros" className="btn btn-primary mt-1"><span>{c.boton}</span><span>{c.boton}</span></Link>
                 </div>
               </div>
             </div>
