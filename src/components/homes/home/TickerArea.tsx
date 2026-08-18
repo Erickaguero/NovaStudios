@@ -3,19 +3,11 @@
 import React from 'react';
 import Marquee from 'react-fast-marquee';
 
-const words = [
-  "Estrategia",
-  "Narrativa",
-  "Producción",
-  "Branding",
-  "Fotografía",
-  "Video",
-  "Podcast",
-  "Marketing",
-  "Web",
-];
-
-const TickerArea = () => {
+const TickerArea = ({ content }: { content: Record<string, string> }) => {
+  const words = (content.palabras || "")
+    .split(",")
+    .map((w) => w.trim())
+    .filter(Boolean);
   return (
     <div className="nova-ticker">
       <Marquee gradient={false} speed={50} autoFill={true}>

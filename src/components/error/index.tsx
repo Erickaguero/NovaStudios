@@ -2,13 +2,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Breacrumb from '@/common/Breacrumb';
-import HeaderOne from '@/layouts/headers/HeaderOne';
+import Header from '@/layouts/headers/Header';
 import FooterOne from '@/layouts/footers/FooterOne';
 
 const ErrorArea = () => {
   return (
     <>
-      <HeaderOne />
+      <Header />
       <Breacrumb title="Error" subtitle="Error" />
       <div className="error-content text-center">
         <div className="divider"></div>

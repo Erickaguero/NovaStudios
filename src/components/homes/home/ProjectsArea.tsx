@@ -29,13 +29,13 @@ const ProjectsArea = ({ content }: { content: Record<string, string> }) => {
           <div className="row g-4 align-items-end justify-content-between">
             <div className="col-12 col-md-6 col-lg-5">
               <div className="section-heading">
-                <h2 className="mb-0">Proyectos Destacados</h2>
+                <h2 className="mb-0">{content.titulo}</h2>
               </div>
             </div>
 
             <div className="col-12 col-md-6 col-lg-4">
               <div className="text-md-end">
-                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary"><span>SÍGUENOS EN INSTAGRAM</span><span>SÍGUENOS EN INSTAGRAM</span></a>
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary"><span>{content.boton}</span><span>{content.boton}</span></a>
               </div>
             </div>
           </div>

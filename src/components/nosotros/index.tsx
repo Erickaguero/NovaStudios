@@ -1,36 +1,11 @@
 
 import Breacrumb from '@/common/Breacrumb';
-import HeaderOne from '@/layouts/headers/HeaderOne';
+import Header from '@/layouts/headers/Header';
 import FooterOne from '@/layouts/footers/FooterOne';
 import Link from 'next/link';
 import React from 'react';
 import { getTeamMembers } from '@/lib/team';
-
-const valores = [
-  { title: "La Excelencia Es Nuestro Estándar", text: "La calidad está en los detalles. Cada entrega refleja el nivel premium que tu marca merece." },
-  { title: "Estrategia Antes que Ejecución", text: "Todo gran trabajo empieza con entendimiento. Primero pensamos, después producimos." },
-  { title: "Personas Antes que Proyectos", text: "Relaciones basadas en confianza, comunicación clara y cuidado genuino." },
-  { title: "Crecimiento a Través de Alianzas", text: "Nuestros clientes son socios, no transacciones. Crecemos junto a las marcas que acompañamos." },
-  { title: "Los Sistemas Crean Excelencia", text: "Procesos que permiten calidad consistente y escalar con propósito." },
-];
-
-const metodo = [
-  { title: "Descubrir", text: "Panorama del negocio, industria, audiencia, marketing actual, identidad de marca, competencia y objetivos." },
-  { title: "Definir", text: "Posicionamiento, mensaje central, pilares de contenido, estilo de comunicación, objetivos y métricas." },
-  { title: "Diseñar", text: "Estrategia de marketing, calendario de contenido, campañas, dirección visual, estructura web y recorrido del cliente." },
-  { title: "Entregar", text: "Producción, diseño, edición, publicación, lanzamiento de campañas e implementación web." },
-  { title: "Optimizar", text: "Medición de rendimiento, interacción, conversión y retroalimentación — y el ciclo vuelve a empezar." },
-];
-
-const promesa = [
-  "Recomendaciones honestas",
-  "Comunicación clara",
-  "Procesos organizados",
-  "Pensamiento estratégico",
-  "Calidad creativa excepcional",
-  "Respeto por los plazos",
-  "Relación colaborativa",
-];
+import { getSectionContent } from '@/lib/content';
 
 const CheckIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
@@ -41,11 +16,27 @@ const CheckIcon = () => (
 );
 
 const Nosotros = async () => {
-  const equipo = await getTeamMembers();
+  const [equipo, c] = await Promise.all([
+    getTeamMembers(),
+    getSectionContent('nosotros_pagina'),
+  ]);
+
+  const valores = [1, 2, 3, 4, 5].map((n) => ({
+    title: c[`valor_${n}_titulo`],
+    text: c[`valor_${n}_texto`],
+  }));
+
+  const metodo = [1, 2, 3, 4, 5].map((n) => ({
+    title: c[`fase_${n}_titulo`],
+    text: c[`fase_${n}_texto`],
+  }));
+
+  const preguntas = [1, 2, 3, 4].map((n) => c[`filosofia_pregunta_${n}`]).filter(Boolean);
+  const promesa = [1, 2, 3, 4, 5, 6, 7].map((n) => c[`cultura_promesa_${n}`]).filter(Boolean);
 
   return (
     <>
-      <HeaderOne />
+      <Header />
       <Breacrumb title="Nosotros" subtitle="Nosotros" />
 
       {/* Quiénes Somos */}
@@ -56,27 +47,24 @@ const Nosotros = async () => {
           <div className="row g-4 g-xl-5 align-items-center">
             <div className="col-12 col-md-6">
               <div className="about-us-thumbnail">
-                <img className="nova-card-img" src="/assets/img/nova/cta-side.jpg" alt="El equipo de Nova Studios grabando una producción en vivo" />              </div>
+                <img className="nova-card-img" src={c.quienes_imagen} alt="El equipo de Nova Studios grabando una producción en vivo" />              </div>
             </div>
 
             <div className="col-12 col-md-6">
               <div className="about-us-text-content ps-md-4">
                 <div className="section-heading">
-                  <h2 className="mb-0">Quiénes Somos</h2>
+                  <h2 className="mb-0">{c.quienes_titulo}</h2>
                 </div>
-                <p className="mb-0">Para empresas y organizaciones que buscan mejorar la presencia de
-                  su marca y su comunicación, Nova Studios es una agencia de crecimiento creativo que
-                  combina estrategia, narrativa y producción para crear experiencias de marca
-                  significativas y crecimiento sostenible.</p>
+                <p className="mb-0">{c.quienes_parrafo}</p>
 
                 <ul className="ps-0 list-unstyled mb-0">
-                  <li><CheckIcon /> Estratégicos, creativos y cercanos</li>
-                  <li><CheckIcon /> Calidad premium en cada detalle</li>
-                  <li><CheckIcon /> Socios de tu crecimiento, no proveedores</li>
+                  <li><CheckIcon /> {c.quienes_punto_1}</li>
+                  <li><CheckIcon /> {c.quienes_punto_2}</li>
+                  <li><CheckIcon /> {c.quienes_punto_3}</li>
                 </ul>
 
                 <div>
-                  <Link href="/contacto" className="btn btn-primary mt-1"><span>HABLEMOS</span><span>HABLEMOS</span></Link>
+                  <Link href="/contacto" className="btn btn-primary mt-1"><span>{c.quienes_boton}</span><span>{c.quienes_boton}</span></Link>
                 </div>
               </div>
             </div>
@@ -94,23 +82,16 @@ const Nosotros = async () => {
           <div className="row g-4 g-xl-5 align-items-center">
             <div className="col-12 col-md-6 order-md-2">
               <div className="about-us-thumbnail">
-                <img className="nova-card-img" src="/assets/img/nova/av-camera.svg" alt="Ilustración de una cámara de cine, el origen de Nova Studios" />              </div>
+                <img className="nova-card-img" src={c.historia_imagen} alt="Ilustración de una cámara de cine, el origen de Nova Studios" />              </div>
             </div>
 
             <div className="col-12 col-md-6 order-md-1">
               <div className="about-us-text-content pe-md-4">
                 <div className="section-heading">
-                  <h2 className="mb-0">Nuestra Historia</h2>
+                  <h2 className="mb-0">{c.historia_titulo}</h2>
                 </div>
-                <p className="mb-0">Nova Studios nació en 2019 como una compañía de fotografía y
-                  producción de video. Con cada proyecto entendimos algo esencial: las marcas no
-                  necesitan más contenido, necesitan contenido con estrategia. Así evolucionamos
-                  hasta convertirnos en una agencia integral de crecimiento creativo que hoy
-                  acompaña a empresas en Norteamérica y Latinoamérica.</p>
-                <p className="mb-0">Detrás de Nova están Gamaliel Noriega, fundador y director
-                  creativo con trayectoria en producción audiovisual, branding, marketing y medios;
-                  y Stephanie Salas, co-fundadora y directora de operaciones, quien lidera los
-                  procesos, los sistemas y la experiencia del cliente.</p>
+                <p className="mb-0">{c.historia_parrafo_1}</p>
+                <p className="mb-0">{c.historia_parrafo_2}</p>
               </div>
             </div>
           </div>
@@ -127,19 +108,15 @@ const Nosotros = async () => {
           <div className="row g-4 g-lg-5">
             <div id="mision" className="col-12 col-lg-6">
               <div className="section-heading">
-                <h2 className="mb-4">Misión</h2>
-                <p className="mb-0">Empoderar a empresas y organizaciones con soluciones creativas
-                  estratégicas que transformen su visión en historias significativas, marcas
-                  poderosas y crecimiento medible.</p>
+                <h2 className="mb-4">{c.mision_titulo}</h2>
+                <p className="mb-0">{c.mision_parrafo}</p>
               </div>
             </div>
 
             <div id="vision" className="col-12 col-lg-6">
               <div className="section-heading">
-                <h2 className="mb-4">Visión</h2>
-                <p className="mb-0">Convertirnos en una agencia líder de crecimiento creativo,
-                  reconocida en Norteamérica y Latinoamérica por construir marcas a través del
-                  pensamiento estratégico, la creatividad excepcional y las alianzas a largo plazo.</p>
+                <h2 className="mb-4">{c.vision_titulo}</h2>
+                <p className="mb-0">{c.vision_parrafo}</p>
               </div>
             </div>
           </div>
@@ -156,10 +133,8 @@ const Nosotros = async () => {
           <div className="row g-5">
             <div className="col-md-5 col-xl-6">
               <div className="section-heading">
-                <h2 className="mb-4">Nuestros Valores</h2>
-                <p className="mb-0">Cinco principios guían cada decisión, cada proyecto y cada
-                  relación que construimos. No son frases en la pared: son la forma en que
-                  trabajamos todos los días.</p>
+                <h2 className="mb-4">{c.valores_titulo}</h2>
+                <p className="mb-0">{c.valores_parrafo}</p>
               </div>
             </div>
 
@@ -190,23 +165,20 @@ const Nosotros = async () => {
           <div className="row g-4 g-xl-5 align-items-center">
             <div className="col-12 col-md-6">
               <div className="about-us-thumbnail">
-                <img className="nova-card-img" src="/assets/img/nova/av-strategy.svg" alt="Ilustración de un storyboard con foco estratégico" />              </div>
+                <img className="nova-card-img" src={c.filosofia_imagen} alt="Ilustración de un storyboard con foco estratégico" />              </div>
             </div>
 
             <div className="col-12 col-md-6">
               <div className="about-us-text-content ps-md-4">
                 <div className="section-heading">
-                  <h2 className="mb-0">Filosofía: Creatividad con Propósito</h2>
+                  <h2 className="mb-0">{c.filosofia_titulo}</h2>
                 </div>
-                <p className="mb-0">No creamos contenido simplemente para llenar plataformas.
-                  Creamos experiencias estratégicas diseñadas para generar impacto. Cada proyecto
-                  parte de cuatro preguntas:</p>
+                <p className="mb-0">{c.filosofia_parrafo}</p>
 
                 <ul className="ps-0 list-unstyled mb-0">
-                  <li><CheckIcon /> ¿Quién es la audiencia?</li>
-                  <li><CheckIcon /> ¿Qué mensaje hay que comunicar?</li>
-                  <li><CheckIcon /> ¿Qué acción debe tomar la audiencia?</li>
-                  <li><CheckIcon /> ¿Cómo apoya la creatividad la visión mayor?</li>
+                  {preguntas.map((pregunta, i) => (
+                    <li key={i}><CheckIcon /> {pregunta}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -224,11 +196,9 @@ const Nosotros = async () => {
           <div className="row g-5">
             <div className="col-md-5 col-xl-6">
               <div className="section-heading">
-                <h2 className="mb-4">El Método Nova</h2>
-                <p className="mb-5">Nuestro framework estratégico de 5 fases convierte la visión de
-                  tu marca en un sistema de crecimiento: de entender tu negocio a medir y optimizar
-                  cada resultado.</p>
-                <Link href="/contacto" className="btn btn-primary"><span>EMPECEMOS</span><span>EMPECEMOS</span></Link>
+                <h2 className="mb-4">{c.metodo_titulo}</h2>
+                <p className="mb-5">{c.metodo_parrafo}</p>
+                <Link href="/contacto" className="btn btn-primary"><span>{c.metodo_boton}</span><span>{c.metodo_boton}</span></Link>
               </div>
             </div>
 
@@ -259,7 +229,7 @@ const Nosotros = async () => {
           <div className="row">
             <div className="col-12">
               <div className="section-heading">
-                <h2 className="mb-0">Equipo</h2>
+                <h2 className="mb-0">{c.equipo_titulo}</h2>
               </div>
             </div>
           </div>
@@ -292,17 +262,15 @@ const Nosotros = async () => {
           <div className="row g-4 g-xl-5 align-items-center">
             <div className="col-12 col-md-6 order-md-2">
               <div className="about-us-thumbnail">
-                <img className="nova-card-img" src="/assets/img/nova/av-mic.svg" alt="Ilustración de un micrófono de estudio, la voz de la cultura Nova" />              </div>
+                <img className="nova-card-img" src={c.cultura_imagen} alt="Ilustración de un micrófono de estudio, la voz de la cultura Nova" />              </div>
             </div>
 
             <div className="col-12 col-md-6 order-md-1">
               <div className="about-us-text-content pe-md-4">
                 <div className="section-heading">
-                  <h2 className="mb-0">Cultura</h2>
+                  <h2 className="mb-0">{c.cultura_titulo}</h2>
                 </div>
-                <p className="mb-0">Creemos en un ambiente creativo donde la excelencia y el cuidado
-                  por las personas van de la mano. Trabajar con Nova es trabajar con un equipo que
-                  promete y cumple:</p>
+                <p className="mb-0">{c.cultura_parrafo}</p>
 
                 <ul className="ps-0 list-unstyled mb-0">
                   {promesa.map((item, i) => (

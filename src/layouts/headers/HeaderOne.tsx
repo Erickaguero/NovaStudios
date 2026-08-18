@@ -7,7 +7,7 @@ import useSticky from '@/hooks/use-sticky';
 import Link from 'next/link';
 import { useEffect, useState } from "react";
 
-const HeaderOne = ({style_2} :any) => {
+const HeaderOne = ({style_2, content = {}} :any) => {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("theme") || "light-mode";
@@ -152,7 +152,7 @@ const HeaderOne = ({style_2} :any) => {
               </div>
               :
 
-              <Link className="btn btn-primary" href="/contacto"><span>HABLEMOS</span><span>HABLEMOS</span></Link>
+              <Link className="btn btn-primary" href="/contacto"><span>{content.boton || "HABLEMOS"}</span><span>{content.boton || "HABLEMOS"}</span></Link>
 
               }
 

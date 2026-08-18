@@ -1,24 +1,25 @@
-"use client"
+
 import Breacrumb from '@/common/Breacrumb';
 import FaqNova from '@/common/FaqNova';
-import HeaderOne from '@/layouts/headers/HeaderOne';
+import Header from '@/layouts/headers/Header';
 import FooterOne from '@/layouts/footers/FooterOne';
-import { useWeb3Form } from '@/hooks/use-web3form';
 import React from 'react';
+import ContactoForm from './ContactoForm';
+import { getSectionContent } from '@/lib/content';
 
-const pasos = [
-  { title: "Consulta inicial", text: "Escríbenos por el formulario o por Instagram y cuéntanos sobre tu marca." },
-  { title: "Llamada de descubrimiento", text: "Agendamos una reunión para hablar de objetivos, retos, audiencia y resultados deseados." },
-  { title: "Propuesta", text: "Recibes una propuesta clara con servicios, entregables, cronograma e inversión." },
-  { title: "Arrancamos", text: "Firmamos el acuerdo, hacemos el onboarding y tu marca empieza a crecer con propósito." },
-];
+const INSTAGRAM_URL = "https://www.instagram.com/nova.studios_co/";
 
-const Contacto = () => {
-  const { status, handleSubmit } = useWeb3Form();
+const Contacto = async () => {
+  const c = await getSectionContent('contacto_pagina');
+
+  const pasos = [1, 2, 3, 4].map((n) => ({
+    title: c[`paso_${n}_titulo`],
+    text: c[`paso_${n}_texto`],
+  }));
 
   return (
     <>
-      <HeaderOne />
+      <Header />
       <Breacrumb title="Contacto" subtitle="Contacto" />
 
       <div className="contact-details-wrap">
@@ -29,59 +30,7 @@ const Contacto = () => {
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-12 col-lg-10">
-                <div className="contact-form bg-secondary m-0 mt-0">
-                  <div className="section-heading text-center">
-                    <h2>¿Tu marca tiene potencial? <br />Construyamos una estrategia</h2>
-                  </div>
-
-                  <div className="divider-sm"></div>
-
-                  <form onSubmit={handleSubmit}>
-                    <input type="hidden" name="subject" value="Nuevo mensaje desde el formulario de contacto" />
-                    <div className="row g-4 g-xl-5">
-                      <div className="col-12 col-lg-6">
-                        <input type="text" name="name" required className="form-control" placeholder="Tu nombre" />
-                      </div>
-                      <div className="col-12 col-lg-6">
-                        <input type="email" name="email" required className="form-control" placeholder="Correo electrónico" />
-                      </div>
-                      <div className="col-12 col-lg-6">
-                        <input type="text" name="phone" className="form-control" placeholder="Teléfono / WhatsApp" />
-                      </div>
-                      <div className="col-12 col-lg-6">
-                        <select name="servicio" className="form-control" defaultValue="">
-                          <option value="" disabled>¿Qué necesita tu marca?</option>
-                          <option value="Estrategia de Marca">Estrategia de Marca</option>
-                          <option value="Branding">Branding</option>
-                          <option value="Producción Audiovisual">Producción Audiovisual</option>
-                          <option value="Marketing Digital">Marketing Digital</option>
-                          <option value="Desarrollo Web">Desarrollo Web</option>
-                          <option value="Consultoría">Consultoría</option>
-                        </select>
-                      </div>
-                      <div className="col-12">
-                        <textarea name="message" required className="form-control" rows={20} cols={30}
-                          placeholder="Cuéntanos sobre tu proyecto y tus objetivos"></textarea>
-                      </div>
-                      <div className="col-12">
-                        <div className="text-center">
-                          <button type="submit" disabled={status === "sending"} className="btn btn-primary rounded-pill">
-                            <span>{status === "sending" ? "ENVIANDO..." : "ENVIAR MENSAJE"}</span>
-                            <span>{status === "sending" ? "ENVIANDO..." : "ENVIAR MENSAJE"}</span>
-                          </button>
-                          {status === "success" && (
-                            <p className="mt-3 mb-0" style={{ color: '#2E9E5B', fontWeight: 600 }}>
-                              ¡Mensaje enviado! Te responderemos muy pronto.</p>
-                          )}
-                          {status === "error" && (
-                            <p className="mt-3 mb-0" style={{ color: '#D64545', fontWeight: 600 }}>
-                              Hubo un problema al enviar. Inténtalo de nuevo o escríbenos a hello@novastudios.agency.</p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
+                <ContactoForm content={c} />
               </div>
             </div>
           </div>
@@ -111,7 +60,7 @@ const Contacto = () => {
                 </div>
 
                 <p className="mb-0">Instagram</p>
-                <h4><a href="https://www.instagram.com/nova.studios_co/" target="_blank" rel="noopener noreferrer">@nova.studios_co</a></h4>
+                <h4><a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">{c.instagram}</a></h4>
               </div>
             </div>
 
@@ -127,7 +76,7 @@ const Contacto = () => {
                 </div>
 
                 <p className="mb-0">Correo electrónico</p>
-                <h4>hello@novastudios.agency</h4>
+                <h4>{c.correo}</h4>
               </div>
             </div>
 
@@ -143,7 +92,7 @@ const Contacto = () => {
                 </div>
 
                 <p className="mb-0">Cobertura</p>
-                <h4>Norteamérica y Latinoamérica</h4>
+                <h4>{c.cobertura}</h4>
               </div>
             </div>
           </div>
@@ -159,11 +108,9 @@ const Contacto = () => {
             <div className="row g-5">
               <div className="col-md-5 col-xl-6">
                 <div className="section-heading">
-                  <h2 className="mb-4">Agenda una Reunión</h2>
-                  <p className="mb-5">La mejor forma de saber si somos el socio correcto para tu marca
-                    es conversar. En cuatro pasos pasamos de un primer mensaje a un plan de
-                    crecimiento en marcha.</p>
-                  <a href="#formulario" className="btn btn-primary"><span>AGENDAR AHORA</span><span>AGENDAR AHORA</span></a>
+                  <h2 className="mb-4">{c.agenda_titulo}</h2>
+                  <p className="mb-5">{c.agenda_parrafo}</p>
+                  <a href="#formulario" className="btn btn-primary"><span>{c.agenda_boton}</span><span>{c.agenda_boton}</span></a>
                 </div>
               </div>
 
@@ -196,13 +143,12 @@ const Contacto = () => {
           <div className="container">
             <div className="row g-4 align-items-center">
               <div className="col-12 col-lg-6">
-                <h2>Redes Sociales</h2>
+                <h2>{c.redes_titulo}</h2>
               </div>
               <div className="col-12 col-lg-6">
-                <p>Síguenos para ver el detrás de cámaras, contenido educativo y las historias de las
-                  marcas que crecen con Nova.</p>
-                <a href="https://www.instagram.com/nova.studios_co/" target="_blank" rel="noopener noreferrer"
-                  className="btn btn-primary"><span>SÍGUENOS EN INSTAGRAM</span><span>SÍGUENOS EN INSTAGRAM</span></a>
+                <p>{c.redes_texto}</p>
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer"
+                  className="btn btn-primary"><span>{c.redes_boton}</span><span>{c.redes_boton}</span></a>
               </div>
             </div>
           </div>

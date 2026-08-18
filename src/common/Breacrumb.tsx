@@ -1,12 +1,14 @@
 
 import Link from 'next/link';
 import React from 'react';
+import { getSectionContent } from '@/lib/content';
 
-const Breacrumb = ({title, subtitle}: any) => {
+const Breacrumb = async ({title, subtitle}: any) => {
+  const c = await getSectionContent('titulos');
   return (
     <>
          <div className="breadcrumb-wrapper bg-img jarallax bg-overlay" data-jarallax="" data-speed="0.6"
-      style={{backgroundImage: "url(/assets/img/nova/breadcrumb-av.svg)", backgroundSize: "cover", backgroundPosition: "center"}}>
+      style={{backgroundImage: `url(${c.imagen})`, backgroundSize: "cover", backgroundPosition: "center"}}>
       <div className="container h-100">
          <div className="breadcrumb-content h-100">
             <h2 className="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="700ms">{title}</h2>

@@ -3,18 +3,11 @@
 import React from 'react';
 import Marquee from 'react-fast-marquee';
 
-const industries = [
-  "Startups",
-  "Restaurantes y Hospitalidad",
-  "Prácticas Médicas",
-  "Bienes Raíces",
-  "Marcas Personales",
-  "Instituciones Educativas",
-  "Organizaciones Sin Fines de Lucro",
-  "Pequeñas y Medianas Empresas",
-];
-
-const ClientsArea = () => {
+const ClientsArea = ({ content }: { content: Record<string, string> }) => {
+  const industries = (content.industrias || "")
+    .split(",")
+    .map((n) => n.trim())
+    .filter(Boolean);
   return (
     <>
       <div id="clientes" className="bg-secondary">
@@ -24,7 +17,7 @@ const ClientsArea = () => {
           <div className="row">
             <div className="col-12">
               <div className="section-heading text-center">
-                <h5 className="mb-0">Marcas e industrias que crecen con Nova</h5>
+                <h5 className="mb-0">{content.titulo}</h5>
               </div>
             </div>
           </div>

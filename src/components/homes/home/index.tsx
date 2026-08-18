@@ -11,33 +11,39 @@ import ResultsArea from "./ResultsArea";
 import TestimonialArea from "./TestimonialArea";
 import ContactHomeArea from "./ContactHomeArea";
 import FaqNova from "@/common/FaqNova";
-import HeaderOne from "@/layouts/headers/HeaderOne";
+import Header from "@/layouts/headers/Header";
 import FooterOne from "@/layouts/footers/FooterOne";
 import { getSectionContent } from "@/lib/content";
 
 const HomeOne = async () => {
-	// Los carruseles son componentes de cliente: su contenido editable
-	// se carga aquí (en el servidor) y se les pasa como props.
-	const [proyectos, testimonios] = await Promise.all([
-		getSectionContent("proyectos"),
-		getSectionContent("testimonios"),
-	]);
+	// Los carruseles y demás componentes de cliente no pueden leer Supabase por
+	// sí mismos: su contenido editable se carga aquí (en el servidor) y se les
+	// pasa como props.
+	const [ticker, clientes, serviciosInicio, proyectos, testimonios, contactoInicio] =
+		await Promise.all([
+			getSectionContent("ticker"),
+			getSectionContent("clientes"),
+			getSectionContent("servicios_inicio"),
+			getSectionContent("proyectos"),
+			getSectionContent("testimonios"),
+			getSectionContent("contacto_inicio"),
+		]);
 
 	return (
 		<>
-			<HeaderOne />
+			<Header />
       <HeroArea />
-      <TickerArea />
-      <ClientsArea />
+      <TickerArea content={ticker} />
+      <ClientsArea content={clientes} />
       <AboutArea />
-      <ServiceArea />
+      <ServiceArea content={serviciosInicio} />
       <WorkprocessArea />
       <WhyNovaArea />
       <ProjectsArea content={proyectos} />
       <ResultsArea />
-      <TestimonialArea imagen={testimonios.imagen} />
+      <TestimonialArea content={testimonios} />
       <FaqNova />
-      <ContactHomeArea />
+      <ContactHomeArea content={contactoInicio} />
       <FooterOne />
 		</>
 	);

@@ -1,64 +1,38 @@
 
 import Breacrumb from '@/common/Breacrumb';
-import HeaderOne from '@/layouts/headers/HeaderOne';
+import Header from '@/layouts/headers/Header';
 import FooterOne from '@/layouts/footers/FooterOne';
 import Link from 'next/link';
 import React from 'react';
+import { getSectionContent } from '@/lib/content';
 
-const planes = [
-  {
-    id: "essential",
-    name: "Nova Essential",
-    tagline: "Cotización personalizada",
-    ideal: "Ideal para empresas que están estableciendo una presencia de marca consistente.",
-    items: [
-      "Consistencia de marca",
-      "Contenido fundamental",
-      "Gestión de redes sociales",
-      "Recursos creativos profesionales",
-    ],
-    featured: false,
-  },
-  {
-    id: "growth",
-    name: "Nova Growth",
-    tagline: "Cotización personalizada",
-    ideal: "Ideal para empresas listas para expandir su marketing y su audiencia.",
-    items: [
-      "Mayor producción de contenido",
-      "Gestión multiplataforma",
-      "Campañas estratégicas",
-      "Crecimiento de audiencia",
-    ],
-    featured: true,
-  },
-  {
-    id: "scale",
-    name: "Nova Scale",
-    tagline: "Cotización personalizada",
-    ideal: "Ideal para empresas que buscan crecimiento acelerado y alianzas a largo plazo.",
-    items: [
-      "Dirección creativa completa",
-      "Estrategia avanzada de marketing",
-      "Producción a gran escala",
-      "Desarrollo empresarial a largo plazo",
-    ],
-    featured: false,
-  },
+// El ancla y cuál plan va resaltado son fijos; los textos se editan desde el
+// panel de mantenimiento (sección planes_pagina).
+const planesMeta = [
+  { id: "essential", featured: false },
+  { id: "growth", featured: true },
+  { id: "scale", featured: false },
 ];
 
-const proceso = [
-  { title: "Consulta inicial", text: "Escribes o agendas una llamada y nos cuentas sobre tu marca." },
-  { title: "Llamada de descubrimiento", text: "Conversamos sobre objetivos, retos, audiencia, presupuesto esperado y resultados deseados." },
-  { title: "Evaluación interna", text: "Analizamos tu proyecto y definimos el enfoque correcto para tu etapa de crecimiento." },
-  { title: "Propuesta", text: "Recibes una propuesta con objetivos, servicios, entregables, cronograma, inversión y condiciones." },
-  { title: "Acuerdo y onboarding", text: "Firmamos el acuerdo, alineamos el cronograma y arrancamos con el proceso de integración." },
-];
+const Planes = async () => {
+  const c = await getSectionContent('planes_pagina');
 
-const Planes = () => {
+  const planes = planesMeta.map((meta, i) => ({
+    ...meta,
+    name: c[`plan_${i + 1}_nombre`],
+    tagline: c[`plan_${i + 1}_precio`],
+    ideal: c[`plan_${i + 1}_ideal`],
+    items: [1, 2, 3, 4].map((j) => c[`plan_${i + 1}_item_${j}`]).filter(Boolean),
+  }));
+
+  const proceso = [1, 2, 3, 4, 5].map((n) => ({
+    title: c[`paso_${n}_titulo`],
+    text: c[`paso_${n}_texto`],
+  }));
+
   return (
     <>
-      <HeaderOne />
+      <Header />
       <Breacrumb title="Planes" subtitle="Planes" />
 
       {/* Comparativa / intro */}
@@ -69,11 +43,8 @@ const Planes = () => {
           <div className="row justify-content-center">
             <div className="col-12 col-lg-9 text-center">
               <div className="section-heading">
-                <h2 className="mb-4">Un plan para cada etapa de tu marca</h2>
-                <p className="mb-0">En Nova no cotizamos por hora: cotizamos por valor y
-                  transformación. Elige el nivel que corresponde a la etapa de tu negocio —
-                  establecer, expandir o acelerar — y diseñaremos una propuesta a la medida de tus
-                  objetivos.</p>
+                <h2 className="mb-4">{c.intro_titulo}</h2>
+                <p className="mb-0">{c.intro_parrafo}</p>
               </div>
             </div>
           </div>
@@ -102,7 +73,7 @@ const Planes = () => {
 
                     <div className="choose-plan">
                       <Link href="/contacto" className={`btn ${plan.featured ? 'btn-primary' : 'btn-dark'} w-100`}>
-                        <span>Agenda una consulta</span><span>Agenda una consulta</span>
+                        <span>{c.boton_plan}</span><span>{c.boton_plan}</span>
                       </Link>
                     </div>
                   </div>
@@ -122,13 +93,11 @@ const Planes = () => {
         <div className="container">
           <div className="row g-4 align-items-center">
             <div className="col-12 col-lg-6">
-              <h2>Planes Personalizados</h2>
+              <h2>{c.pers_titulo}</h2>
             </div>
             <div className="col-12 col-lg-6">
-              <p>¿Tu proyecto no encaja en un paquete? También trabajamos por proyecto — branding,
-                sitios web, campañas, producciones — y como alianza recurrente con dirección
-                creativa mensual. Creamos soluciones diseñadas alrededor de tus objetivos.</p>
-              <Link href="/contacto" className="btn btn-primary"><span>CUÉNTANOS TU PROYECTO</span><span>CUÉNTANOS TU PROYECTO</span></Link>
+              <p>{c.pers_texto}</p>
+              <Link href="/contacto" className="btn btn-primary"><span>{c.pers_boton}</span><span>{c.pers_boton}</span></Link>
             </div>
           </div>
         </div>
@@ -144,10 +113,9 @@ const Planes = () => {
           <div className="row g-5">
             <div className="col-md-5 col-xl-6">
               <div className="section-heading">
-                <h2 className="mb-4">Proceso de Contratación</h2>
-                <p className="mb-5">Trabajar con Nova es simple y transparente. En cinco pasos pasamos
-                  de una primera conversación a un plan de crecimiento en marcha.</p>
-                <Link href="/contacto" className="btn btn-primary"><span>EMPEZAR AHORA</span><span>EMPEZAR AHORA</span></Link>
+                <h2 className="mb-4">{c.proceso_titulo}</h2>
+                <p className="mb-5">{c.proceso_parrafo}</p>
+                <Link href="/contacto" className="btn btn-primary"><span>{c.proceso_boton}</span><span>{c.proceso_boton}</span></Link>
               </div>
             </div>
 

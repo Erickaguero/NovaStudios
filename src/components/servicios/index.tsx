@@ -1,89 +1,20 @@
 
 import Breacrumb from '@/common/Breacrumb';
-import HeaderOne from '@/layouts/headers/HeaderOne';
+import Header from '@/layouts/headers/Header';
 import FooterOne from '@/layouts/footers/FooterOne';
 import Link from 'next/link';
 import React from 'react';
+import { getSectionContent } from '@/lib/content';
 
-const servicios = [
-  {
-    id: "estrategia-de-marca",
-    icon: "lightbulb",
-    title: "Estrategia de Marca",
-    img: "/assets/img/nova/av-strategy.svg",
-    intro: "Todo gran trabajo empieza con entendimiento. Definimos la dirección estratégica de tu marca antes de producir cualquier pieza, para que cada movimiento tenga un propósito claro.",
-    items: [
-      "Posicionamiento y diferenciación",
-      "Mensaje central y pilares de comunicación",
-      "Definición de audiencia y objetivos",
-      "Dirección creativa y de marca",
-    ],
-  },
-  {
-    id: "branding",
-    icon: "design_services",
-    title: "Branding",
-    img: "/assets/img/nova/av-lens.svg",
-    intro: "Construimos identidades visuales claras, memorables y consistentes: sistemas de marca que comunican quién eres y por qué importas, en cada punto de contacto.",
-    items: [
-      "Identidad visual y sistemas de color",
-      "Tipografía y lenguaje gráfico",
-      "Mensajería y voz de marca",
-      "Guías de marca y aplicación",
-    ],
-  },
-  {
-    id: "produccion-audiovisual",
-    icon: "movie",
-    title: "Producción Audiovisual",
-    img: "/assets/img/nova/cta-side.jpg",
-    intro: "Fotografía y video con mirada cinematográfica: momentos auténticos, iluminación intencional y calidad premium que genera conexión emocional con tu audiencia.",
-    items: [
-      "Fotografía de marca y producto",
-      "Producción de video y narrativa",
-      "Podcasts y contenido para campañas",
-      "Contenido para redes sociales",
-    ],
-  },
-  {
-    id: "marketing-digital",
-    icon: "ads_click",
-    title: "Marketing Digital",
-    img: "/assets/img/nova/av-waveform.svg",
-    intro: "Estrategia, no ruido. Conectamos contenido, canales y campañas en un sistema que convierte la atención en comunidad y la comunidad en crecimiento.",
-    items: [
-      "Estrategia y gestión de redes sociales",
-      "Campañas digitales y pauta",
-      "Calendario y pilares de contenido",
-      "Crecimiento de audiencia y comunidad",
-    ],
-  },
-  {
-    id: "desarrollo-web",
-    icon: "code",
-    title: "Desarrollo Web",
-    img: "/assets/img/nova/av-web.svg",
-    intro: "Tu sitio web es la casa de tu marca. Diseñamos experiencias web que construyen credibilidad, comunican con claridad y convierten visitantes en clientes.",
-    items: [
-      "Diseño y desarrollo de sitios web",
-      "Experiencia de usuario (UX) y conversión",
-      "Mensajes claros y arquitectura de contenido",
-      "Credibilidad y presencia de marca",
-    ],
-  },
-  {
-    id: "consultoria",
-    icon: "trending_up",
-    title: "Consultoría",
-    img: "/assets/img/nova/av-clapper.svg",
-    intro: "Acompañamiento estratégico para equipos que quieren crecer con dirección: pensamiento de negocio aplicado a la creatividad, el marketing y la comunicación.",
-    items: [
-      "Consultoría creativa y de marca",
-      "Dirección estratégica de marketing",
-      "Auditoría de presencia y comunicación",
-      "Acompañamiento a equipos internos",
-    ],
-  },
+// Ícono y ancla de cada servicio son fijos (estructura del sitio); los textos
+// e imágenes se editan desde el panel de mantenimiento (sección servicios_pagina).
+const serviciosMeta = [
+  { id: "estrategia-de-marca", icon: "lightbulb" },
+  { id: "branding", icon: "design_services" },
+  { id: "produccion-audiovisual", icon: "movie" },
+  { id: "marketing-digital", icon: "ads_click" },
+  { id: "desarrollo-web", icon: "code" },
+  { id: "consultoria", icon: "trending_up" },
 ];
 
 const CheckIcon = () => (
@@ -94,10 +25,20 @@ const CheckIcon = () => (
   </svg>
 );
 
-const Servicios = () => {
+const Servicios = async () => {
+  const c = await getSectionContent('servicios_pagina');
+
+  const servicios = serviciosMeta.map((meta, i) => ({
+    ...meta,
+    title: c[`s_${i + 1}_titulo`],
+    intro: c[`s_${i + 1}_intro`],
+    img: c[`s_${i + 1}_imagen`],
+    items: [1, 2, 3, 4].map((j) => c[`s_${i + 1}_item_${j}`]).filter(Boolean),
+  }));
+
   return (
     <>
-      <HeaderOne />
+      <Header />
       <Breacrumb title="Servicios" subtitle="Servicios" />
 
       {/* Intro */}
@@ -108,11 +49,8 @@ const Servicios = () => {
           <div className="row justify-content-center">
             <div className="col-12 col-lg-9 text-center">
               <div className="section-heading">
-                <h2 className="mb-4">Soluciones diseñadas alrededor de tus objetivos</h2>
-                <p className="mb-0">Organizamos nuestro trabajo en tres grandes categorías —
-                  Desarrollo de Marca, Contenido y Producción, y Crecimiento Digital — que se
-                  traducen en seis servicios concretos. Todos comparten un mismo punto de partida:
-                  la estrategia.</p>
+                <h2 className="mb-4">{c.intro_titulo}</h2>
+                <p className="mb-0">{c.intro_parrafo}</p>
               </div>
             </div>
           </div>
@@ -134,7 +72,7 @@ const Servicios = () => {
                 </div>
               </div>
 
-              <div className={`col-12 col-md-6 ${i % 2 === 0 ? '' : 'order-md-1'}`}>
+              <div className={`col-12 col-md-6 ${i % 2 === 0 ? 'order-md-1' : 'order-md-1'}`}>
                 <div className={`about-us-text-content ${i % 2 === 0 ? 'ps-md-4' : 'pe-md-4'}`}>
                   <div className="section-heading">
                     <span className="material-symbols-outlined mb-3" style={{ fontSize: '48px', color: '#ECC80B' }}>{servicio.icon}</span>
@@ -149,7 +87,7 @@ const Servicios = () => {
                   </ul>
 
                   <div>
-                    <Link href="/contacto" className="btn btn-primary mt-1"><span>AGENDA UNA CONSULTA</span><span>AGENDA UNA CONSULTA</span></Link>
+                    <Link href="/contacto" className="btn btn-primary mt-1"><span>{c.boton_servicio}</span><span>{c.boton_servicio}</span></Link>
                   </div>
                 </div>
               </div>
@@ -167,12 +105,11 @@ const Servicios = () => {
         <div className="container">
           <div className="row g-4 align-items-center">
             <div className="col-12 col-lg-6">
-              <h2>¿No sabes por dónde empezar?</h2>
+              <h2>{c.cta_titulo}</h2>
             </div>
             <div className="col-12 col-lg-6">
-              <p>Cada marca está en una etapa distinta. Agenda una llamada de descubrimiento y
-                construyamos juntos la estrategia que tu negocio necesita.</p>
-              <Link href="/planes" className="btn btn-primary"><span>CONOCE LOS PLANES</span><span>CONOCE LOS PLANES</span></Link>
+              <p>{c.cta_texto}</p>
+              <Link href="/planes" className="btn btn-primary"><span>{c.cta_boton}</span><span>{c.cta_boton}</span></Link>
             </div>
           </div>
         </div>

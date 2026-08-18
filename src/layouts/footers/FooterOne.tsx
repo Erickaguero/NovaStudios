@@ -1,7 +1,9 @@
 
 import React from 'react';
+import { getSectionContent } from '@/lib/content';
 
-const FooterOne = ({ style_2 }: any) => {
+const FooterOne = async ({ style_2 }: any) => {
+  const c = await getSectionContent('footer');
   return (
     <>
       <footer className={`footer-wrapper ${style_2 ? 'footer-2 bg-secondary' : ''}`}>
@@ -19,7 +21,7 @@ const FooterOne = ({ style_2 }: any) => {
                   <img className="light-logo" src="/assets/img/core-img/logo.png" alt="Nova Studios" style={{ height: '42px', width: 'auto' }} />
                 </a>
 
-                <p className="mb-0">El sistema operativo detrás del crecimiento creativo. Estrategia. Narrativa. Producción. 📍 Norteamérica y Latinoamérica</p>
+                <p className="mb-0">{c.descripcion}</p>
 
                 <div className="social-nav">
                   <a href="https://www.instagram.com/nova.studios_co/" target="_blank" rel="noopener noreferrer">
@@ -36,7 +38,7 @@ const FooterOne = ({ style_2 }: any) => {
 
             <div className="col-12 col-md-6 col-xl">
               <div className="footer-card">
-                <h5 className="mb-0">Servicios</h5>
+                <h5 className="mb-0">{c.titulo_servicios}</h5>
 
                 <ul className="footer-nav">
                   <li><a href="/servicios#estrategia-de-marca">Estrategia de Marca</a></li>
@@ -52,7 +54,7 @@ const FooterOne = ({ style_2 }: any) => {
 
             <div className="col-12 col-md-6 col-xl">
               <div className="footer-card">
-                <h5 className="mb-0">Recursos</h5>
+                <h5 className="mb-0">{c.titulo_recursos}</h5>
 
                 <ul className="footer-nav">
                   <li><a href="/nosotros">Nosotros</a></li>
@@ -66,7 +68,7 @@ const FooterOne = ({ style_2 }: any) => {
 
             <div className="col-12 col-md-6 col-xl-4">
               <div className="footer-card">
-                <h5 className="mb-0">Suscríbete</h5>
+                <h5 className="mb-0">{c.titulo_suscribete}</h5>
                 <form action="#" className="subscribe-form">
                   <input type="email" className="form-control" placeholder="Correo electrónico" />
                   <button className="btn">

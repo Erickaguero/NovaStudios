@@ -6,19 +6,27 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 
-const services = [
-  { icon: "lightbulb", title: "Estrategia de Marca", link: "/servicios#estrategia-de-marca", description: "Posicionamiento, mensaje y dirección para que cada movimiento de tu marca tenga un propósito claro." },
-  { icon: "design_services", title: "Branding", link: "/servicios#branding", description: "Identidad visual, tipografía y sistemas de color que hacen a tu marca clara, memorable y consistente." },
-  { icon: "movie", title: "Producción Audiovisual", link: "/servicios#produccion-audiovisual", description: "Fotografía, video y podcasts con mirada cinematográfica que generan conexión emocional." },
-  { icon: "ads_click", title: "Marketing Digital", link: "/servicios#marketing-digital", description: "Estrategia de redes, campañas y comunidad que convierten la atención en conexión real." },
-  { icon: "code", title: "Desarrollo Web", link: "/servicios#desarrollo-web", description: "Experiencias web que construyen credibilidad, comunican con claridad y convierten." },
-  { icon: "trending_up", title: "Consultoría", link: "/servicios#consultoria", description: "Acompañamiento estratégico y dirección creativa para escalar con propósito." },
+// Ícono y enlace de cada tarjeta son fijos (estructura); el texto se edita
+// desde el panel de mantenimiento (sección servicios_inicio).
+const serviceMeta = [
+  { icon: "lightbulb", link: "/servicios#estrategia-de-marca" },
+  { icon: "design_services", link: "/servicios#branding" },
+  { icon: "movie", link: "/servicios#produccion-audiovisual" },
+  { icon: "ads_click", link: "/servicios#marketing-digital" },
+  { icon: "code", link: "/servicios#desarrollo-web" },
+  { icon: "trending_up", link: "/servicios#consultoria" },
 ];
 
 
-const ServiceArea = () => {
+const ServiceArea = ({ content }: { content: Record<string, string> }) => {
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const services = serviceMeta.map((meta, i) => ({
+    ...meta,
+    title: content[`card_${i + 1}_titulo`],
+    description: content[`card_${i + 1}_texto`],
+  }));
 
 
 
@@ -31,7 +39,7 @@ const ServiceArea = () => {
           <div className="row g-4 align-items-end">
             <div className="col-12 col-sm-6">
               <div className="section-heading">
-                <h2 className="mb-0">Qué Hacemos en Nova</h2>
+                <h2 className="mb-0">{content.titulo}</h2>
               </div>
             </div>
 

@@ -1,15 +1,14 @@
 
 import React from 'react';
+import { getSectionContent } from '@/lib/content';
 
-const steps = [
-  { number: 1, title: "Descubrir", text: "Analizamos tu negocio, tu industria, tu audiencia y tu competencia para entender dónde estás y a dónde quieres llegar." },
-  { number: 2, title: "Definir", text: "Posicionamiento, mensaje central, pilares de contenido y métricas — un plan claro antes de producir cualquier pieza." },
-  { number: 3, title: "Diseñar", text: "Estrategia de marketing, dirección visual, calendario de contenido y recorrido del cliente, todo conectado como un sistema." },
-  { number: 4, title: "Entregar", text: "Producción, diseño, edición y lanzamiento — ejecución con calidad premium y respeto por los plazos." },
-  { number: 5, title: "Optimizar", text: "Medimos rendimiento, interacción y conversión, aprendemos de los datos y reiniciamos el ciclo para seguir creciendo." },
-];
-
-const WorkprocessArea = () => {
+const WorkprocessArea = async () => {
+  const c = await getSectionContent('metodo_inicio');
+  const steps = [1, 2, 3, 4, 5].map((n) => ({
+    number: n,
+    title: c[`paso_${n}_titulo`],
+    text: c[`paso_${n}_texto`],
+  }));
   return (
     <>
       <div id="metodo" className="work-process-wrapper">
@@ -20,11 +19,9 @@ const WorkprocessArea = () => {
             <div className="col-md-5 col-xl-6">
               <div className="section-heading">
 
-                <h2 className="mb-4">El Método Nova</h2>
-                <p className="mb-5">El crecimiento con propósito no sucede por accidente. Nuestro
-                  framework estratégico de 5 fases conecta estrategia, contenido y distribución en
-                  un solo sistema, para que cada pieza que publica tu marca tenga un trabajo que hacer.</p>
-                <a href="/contacto" className="btn btn-primary"><span>TRABAJEMOS JUNTOS</span><span>TRABAJEMOS JUNTOS</span></a>
+                <h2 className="mb-4">{c.titulo}</h2>
+                <p className="mb-5">{c.parrafo}</p>
+                <a href="/contacto" className="btn btn-primary"><span>{c.boton}</span><span>{c.boton}</span></a>
               </div>
             </div>
 

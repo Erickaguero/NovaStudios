@@ -3,25 +3,12 @@ import React from 'react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const testimonials = [
-  {
-    quote: "“Trabajar con Nova Studios cambió la forma en que nuestra marca se presenta. Primero nos dieron una estrategia clara y después contenido que realmente suena a nosotros — y el crecimiento llegó. Todo conectado, todo con propósito.”",
-    name: "Cliente de Nova",
-    role: "Alianza de Marca",
-  },
-  {
-    quote: "“Nova no es un proveedor más: es un socio estratégico. Entendieron nuestro negocio antes de producir una sola pieza, y eso se nota en cada entrega. Recomendaciones honestas y calidad excepcional.”",
-    name: "Cliente de Nova",
-    role: "Empresa en Crecimiento",
-  },
-  {
-    quote: "“El Método Nova puso orden donde había ruido: posicionamiento claro, contenido consistente y resultados que podemos medir. La mejor decisión que tomamos para nuestra marca.”",
-    name: "Cliente de Nova",
-    role: "Marca Personal",
-  },
-];
-
-const TestimonialArea = ({ imagen }: { imagen?: string }) => {
+const TestimonialArea = ({ content }: { content: Record<string, string> }) => {
+  const testimonials = [1, 2, 3].map((n) => ({
+    quote: content[`testimonio_${n}_texto`],
+    name: content[`testimonio_${n}_nombre`],
+    role: content[`testimonio_${n}_rol`],
+  }));
   return (
     <>
       <div id="testimonios" className="bg-secondary">
@@ -31,7 +18,7 @@ const TestimonialArea = ({ imagen }: { imagen?: string }) => {
           <div className="row g-5 align-items-center">
             <div className="col-12 col-lg-6">
               <div className="section-heading">
-                <h2 className="mb-0">Testimonios</h2>
+                <h2 className="mb-0">{content.titulo}</h2>
               </div>
 
               <div className="divider-sm"></div>
@@ -100,7 +87,7 @@ const TestimonialArea = ({ imagen }: { imagen?: string }) => {
 
             <div className="col-12 col-lg-6">
               <div className="about-us-thumbnail">
-                <img className="nova-card-img nova-float" src={imagen || "/assets/img/nova/av-lens.svg"} alt="Ilustración de un lente de cámara con diafragma" />              </div>
+                <img className="nova-card-img nova-float" src={content.imagen || "/assets/img/nova/av-lens.svg"} alt="Ilustración de un lente de cámara con diafragma" />              </div>
             </div>
           </div>
         </div>

@@ -23,33 +23,20 @@ const ResultsArea = async () => {
 
                 <div className="total-clients-wrap">
                   <div className="total-number">
-                    <h3>50+</h3>
-                    <p className="mb-0">Marcas creciendo con nosotros</p>
+                    <h3>{c.dato_principal}</h3>
+                    <p className="mb-0">{c.dato_principal_texto}</p>
                   </div>
 
                 </div>
 
 
                 <div className="cta-stats">
-                  <div>
-                    <h2>2019</h2>
-                    <p className="mb-0">Año de fundación</p>
-                  </div>
-
-                  <div>
-                    <h2>5</h2>
-                    <p className="mb-0">Fases del Método Nova</p>
-                  </div>
-
-                  <div>
-                    <h2>10+</h2>
-                    <p className="mb-0">Industrias atendidas</p>
-                  </div>
-
-                  <div>
-                    <h2>100+</h2>
-                    <p className="mb-0">Proyectos entregados</p>
-                  </div>
+                  {[1, 2, 3, 4].map((n) => (
+                    <div key={n}>
+                      <h2>{c[`stat_${n}_numero`]}</h2>
+                      <p className="mb-0">{c[`stat_${n}_texto`]}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
