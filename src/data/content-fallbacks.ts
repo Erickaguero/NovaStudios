@@ -7,9 +7,12 @@
 
 export const contentFallbacks: Record<string, Record<string, string>> = {
   titulos: {
-    // Imagen de fondo del banner de título de todas las páginas interiores
-    // (Servicios, Planes, Nosotros, Contacto, Error).
-    imagen: "/assets/img/nova/breadcrumb-av.svg",
+    // Imagen de fondo del banner de título de cada página interior.
+    imagen_servicios: "/assets/img/nova/breadcrumb-av.svg",
+    imagen_planes: "/assets/img/nova/breadcrumb-av.svg",
+    imagen_nosotros: "/assets/img/nova/breadcrumb-av.svg",
+    imagen_contacto: "/assets/img/nova/breadcrumb-av.svg",
+    imagen_error: "/assets/img/nova/breadcrumb-av.svg",
   },
   hero: {
     badge: "Agencia de Crecimiento Creativo",

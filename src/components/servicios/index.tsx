@@ -39,7 +39,7 @@ const Servicios = async () => {
   return (
     <>
       <Header />
-      <Breacrumb title="Servicios" subtitle="Servicios" />
+      <Breacrumb title="Servicios" subtitle="Servicios" pagina="servicios" />
 
       {/* Intro */}
       <div className="about-us-wrapper">

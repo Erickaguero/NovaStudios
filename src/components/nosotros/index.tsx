@@ -37,7 +37,7 @@ const Nosotros = async () => {
   return (
     <>
       <Header />
-      <Breacrumb title="Nosotros" subtitle="Nosotros" />
+      <Breacrumb title="Nosotros" subtitle="Nosotros" pagina="nosotros" />
 
       {/* Quiénes Somos */}
       <div id="quienes-somos" className="about-us-wrapper">

@@ -9,7 +9,7 @@ const ErrorArea = () => {
   return (
     <>
       <Header />
-      <Breacrumb title="Error" subtitle="Error" />
+      <Breacrumb title="Error" subtitle="Error" pagina="error" />
       <div className="error-content text-center">
         <div className="divider"></div>
 

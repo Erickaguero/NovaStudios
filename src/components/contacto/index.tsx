@@ -20,7 +20,7 @@ const Contacto = async () => {
   return (
     <>
       <Header />
-      <Breacrumb title="Contacto" subtitle="Contacto" />
+      <Breacrumb title="Contacto" subtitle="Contacto" pagina="contacto" />
 
       <div className="contact-details-wrap">
 

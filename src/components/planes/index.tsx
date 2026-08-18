@@ -33,7 +33,7 @@ const Planes = async () => {
   return (
     <>
       <Header />
-      <Breacrumb title="Planes" subtitle="Planes" />
+      <Breacrumb title="Planes" subtitle="Planes" pagina="planes" />
 
       {/* Comparativa / intro */}
       <div id="comparativa" className="about-us-wrapper">
