@@ -66,6 +66,16 @@ const menu_data = [
   },
   {
     id: 5,
+    title: "Portafolio",
+    link: "/portafolio",
+    has_dropdown: true,
+    sub_menus: [
+      { link: "/portafolio#proyectos", title: "Proyectos", has_inner_dropdown: false },
+      { link: "/portafolio#cta", title: "Trabaja con Nova", has_inner_dropdown: false },
+    ],
+  },
+  {
+    id: 6,
     title: "Contacto",
     link: "/contacto",
     has_dropdown: true,

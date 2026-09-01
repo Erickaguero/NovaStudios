@@ -11,8 +11,16 @@ export const contentFallbacks: Record<string, Record<string, string>> = {
     imagen_servicios: "/assets/img/nova/breadcrumb-av.svg",
     imagen_planes: "/assets/img/nova/breadcrumb-av.svg",
     imagen_nosotros: "/assets/img/nova/breadcrumb-av.svg",
+    imagen_portafolio: "/assets/img/nova/breadcrumb-av.svg",
     imagen_contacto: "/assets/img/nova/breadcrumb-av.svg",
     imagen_error: "/assets/img/nova/breadcrumb-av.svg",
+  },
+  portafolio_pagina: {
+    titulo: "Nuestro Portafolio",
+    parrafo:
+      "Una selección de los proyectos que hemos creado junto a nuestros clientes: estrategia, branding, contenido y producción audiovisual trabajando como un solo sistema.",
+    cta_titulo: "¿Quieres que tu marca sea el próximo proyecto?",
+    cta_boton: "HABLEMOS DE TU PROYECTO",
   },
   hero: {
     badge: "Agencia de Crecimiento Creativo",

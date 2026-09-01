@@ -59,6 +59,7 @@ const FooterOne = async ({ style_2 }: any) => {
                 <ul className="footer-nav">
                   <li><a href="/nosotros">Nosotros</a></li>
                   <li><a href="/planes">Planes</a></li>
+                  <li><a href="/portafolio">Portafolio</a></li>
                   <li><a href="/contacto">Contacto</a></li>
                   <li><a href="https://www.instagram.com/nova.studios_co/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                 </ul>
