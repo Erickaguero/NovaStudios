@@ -7,7 +7,7 @@ import React from 'react';
 import ContactoForm from './ContactoForm';
 import { getSectionContent } from '@/lib/content';
 
-const INSTAGRAM_URL = "https://www.instagram.com/nova.studios_co/";
+const INSTAGRAM_URL = "https://www.instagram.com/novastudios_agency";
 
 const Contacto = async () => {
   const c = await getSectionContent('contacto_pagina');

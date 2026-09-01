@@ -24,7 +24,7 @@ const FooterOne = async ({ style_2 }: any) => {
                 <p className="mb-0">{c.descripcion}</p>
 
                 <div className="social-nav">
-                  <a href="https://www.instagram.com/nova.studios_co/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.instagram.com/novastudios_agency" target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                       className="bi bi-instagram" viewBox="0 0 16 16">
                       <path
@@ -61,7 +61,7 @@ const FooterOne = async ({ style_2 }: any) => {
                   <li><a href="/planes">Planes</a></li>
                   <li><a href="/portafolio">Portafolio</a></li>
                   <li><a href="/contacto">Contacto</a></li>
-                  <li><a href="https://www.instagram.com/nova.studios_co/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                  <li><a href="https://www.instagram.com/novastudios_agency" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                 </ul>
               </div>
             </div>
@@ -100,7 +100,7 @@ const FooterOne = async ({ style_2 }: any) => {
           <div className="row align-items-center">
 
             <div className="col-12 col-lg-6">
-              <p className="mb-0 copyright">Copyright © {new Date().getFullYear()} <span id="year"></span> <a href="https://www.instagram.com/nova.studios_co/" target="_blank" rel="noopener noreferrer"> Nova Studios </a></p>
+              <p className="mb-0 copyright">Copyright © {new Date().getFullYear()} <span id="year"></span> <a href="https://www.instagram.com/novastudios_agency" target="_blank" rel="noopener noreferrer"> Nova Studios </a></p>
             </div>
 
             <div className="col-12 col-lg-6">

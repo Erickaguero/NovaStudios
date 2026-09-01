@@ -43,7 +43,7 @@ const OffCanvas = ({openCanvas, setOpenCavas} : any) => {
 
               <div>
                 <p>Instagram</p>
-                <h5 className="mb-0"><a href="https://www.instagram.com/nova.studios_co/" target="_blank" rel="noopener noreferrer">@nova.studios_co</a></h5>
+                <h5 className="mb-0"><a href="https://www.instagram.com/novastudios_agency" target="_blank" rel="noopener noreferrer">@novastudios_agency</a></h5>
               </div>
             </div>
 
@@ -84,7 +84,7 @@ const OffCanvas = ({openCanvas, setOpenCavas} : any) => {
 
 
           <div className="social-nav">
-            <a href="https://www.instagram.com/nova.studios_co/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/novastudios_agency" target="_blank" rel="noopener noreferrer">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 className="bi bi-instagram" viewBox="0 0 16 16">
                 <path

@@ -35,7 +35,7 @@ const ContactHomeArea = ({ content }: { content: Record<string, string> }) => {
                 <div style={infoStyle}>
                   <span className="material-symbols-outlined" style={{ color: '#ECC80B', fontSize: '28px' }}>photo_camera</span>
                   <span><span style={{ color: '#ECC80B', fontWeight: 600 }}>Instagram:</span>{" "}
-                    <a href="https://www.instagram.com/nova.studios_co/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.instagram.com/novastudios_agency" target="_blank" rel="noopener noreferrer"
                       style={{ color: '#FEFEFE', textDecoration: 'underline' }}>{content.instagram}</a>
                   </span>
                 </div>

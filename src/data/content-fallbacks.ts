@@ -202,7 +202,7 @@ export const contentFallbacks: Record<string, Record<string, string>> = {
     parrafo:
       "Si tu marca está lista para crecer, nosotros también. Cuéntanos a dónde quieres llegar y diseñaremos el camino: estrategia, narrativa y producción con propósito.",
     correo: "hello@novastudios.agency",
-    instagram: "@nova.studios_co",
+    instagram: "@novastudios_agency",
     cobertura: "Norteamérica y Latinoamérica",
     form_titulo: "Agenda tu consulta inicial",
   },
@@ -409,7 +409,7 @@ export const contentFallbacks: Record<string, Record<string, string>> = {
     form_titulo_1: "¿Tu marca tiene potencial?",
     form_titulo_2: "Construyamos una estrategia",
     boton_enviar: "ENVIAR MENSAJE",
-    instagram: "@nova.studios_co",
+    instagram: "@novastudios_agency",
     correo: "hello@novastudios.agency",
     cobertura: "Norteamérica y Latinoamérica",
     agenda_titulo: "Agenda una Reunión",
