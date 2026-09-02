@@ -644,15 +644,17 @@ picture.jarallax-img img {
 .header-area .navbar .navbar-brand {
   margin-right: 2rem;
   line-height: 1 !important;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 @media only screen and (min-width:992px) {
   .header-area .navbar .navbar-brand {
-    margin-right: 3rem;
+    margin-right: 1.5rem;
   }
 }
 @media only screen and (min-width:1200px) {
   .header-area .navbar .navbar-brand {
-    margin-right: 4rem;
+    margin-right: 2rem;
   }
 }
 .header-area .navbar-nav {
@@ -661,12 +663,12 @@ picture.jarallax-img img {
 }
 @media only screen and (min-width:992px) {
   .header-area .navbar-nav {
-    gap: 36px;
+    gap: 20px;
   }
 }
 @media only screen and (min-width:1200px) {
   .header-area .navbar-nav {
-    gap: 44px;
+    gap: 28px;
   }
 }
 .header-area .navbar-nav li > a {
@@ -828,12 +830,12 @@ picture.jarallax-img img {
 }
 @media only screen and (min-width:992px) {
   .header-search-btn .btn {
-    margin-left: 60px;
+    margin-left: 24px;
   }
 }
 @media only screen and (min-width:1200px) {
   .header-search-btn .btn {
-    margin-left: 110px;
+    margin-left: 40px;
   }
 }
 
