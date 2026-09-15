@@ -1,6 +1,7 @@
 
 import type { Metadata } from "next";
 import "../styles/index.css";
+import ComingSoonOverlay from "../components/ComingSoonOverlay";
 
 export const metadata: Metadata = {
   title: "Nova Studios — Agencia de Crecimiento Creativo",
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
+        <ComingSoonOverlay />
         {children}
       </body>
     </html>
