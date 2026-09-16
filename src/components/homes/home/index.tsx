@@ -14,12 +14,13 @@ import FaqNova from "@/common/FaqNova";
 import Header from "@/layouts/headers/Header";
 import FooterOne from "@/layouts/footers/FooterOne";
 import { getSectionContent } from "@/lib/content";
+import { getSocialLinks } from "@/lib/social";
 
 const HomeOne = async () => {
 	// Los carruseles y demás componentes de cliente no pueden leer Supabase por
 	// sí mismos: su contenido editable se carga aquí (en el servidor) y se les
 	// pasa como props.
-	const [ticker, clientes, serviciosInicio, proyectos, testimonios, contactoInicio] =
+	const [ticker, clientes, serviciosInicio, proyectos, testimonios, contactoInicio, redes] =
 		await Promise.all([
 			getSectionContent("ticker"),
 			getSectionContent("clientes"),
@@ -27,6 +28,7 @@ const HomeOne = async () => {
 			getSectionContent("proyectos"),
 			getSectionContent("testimonios"),
 			getSectionContent("contacto_inicio"),
+			getSocialLinks(),
 		]);
 
 	return (
@@ -39,11 +41,11 @@ const HomeOne = async () => {
       <ServiceArea content={serviciosInicio} />
       <WorkprocessArea />
       <WhyNovaArea />
-      <ProjectsArea content={proyectos} />
+      <ProjectsArea content={proyectos} instagramUrl={redes.instagram} />
       <ResultsArea />
       <TestimonialArea content={testimonios} />
       <FaqNova />
-      <ContactHomeArea content={contactoInicio} />
+      <ContactHomeArea content={contactoInicio} redes={redes} />
       <FooterOne />
 		</>
 	);

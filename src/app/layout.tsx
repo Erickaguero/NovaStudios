@@ -1,7 +1,6 @@
-
 import type { Metadata } from "next";
 import "../styles/index.css";
-import ComingSoonOverlay from "../components/ComingSoonOverlay";
+import WhatsAppFloat from "../components/WhatsAppFloat";
 
 export const metadata: Metadata = {
   title: "Nova Studios — Agencia de Crecimiento Creativo",
@@ -26,8 +25,8 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
-        <ComingSoonOverlay />
         {children}
+        <WhatsAppFloat />
       </body>
     </html>
   );

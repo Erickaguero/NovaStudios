@@ -4,7 +4,6 @@ import React from 'react';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const INSTAGRAM_URL = "https://www.instagram.com/novastudios_agency";
 
 const ArrowIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -14,7 +13,8 @@ const ArrowIcon = () => (
   </svg>
 );
 
-const ProjectsArea = ({ content }: { content: Record<string, string> }) => {
+const ProjectsArea = ({ content, instagramUrl }: { content: Record<string, string>; instagramUrl?: string }) => {
+  const INSTAGRAM_URL = instagramUrl || "https://www.instagram.com/novastudios_agency";
   const feedPosts = Array.from({ length: 8 }, (_, i) => ({
     img: content[`post_${i + 1}_imagen`],
     title: content[`post_${i + 1}_titulo`],

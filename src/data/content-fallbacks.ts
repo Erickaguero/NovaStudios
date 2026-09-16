@@ -206,6 +206,16 @@ export const contentFallbacks: Record<string, Record<string, string>> = {
     cobertura: "Norteamérica y Latinoamérica",
     form_titulo: "Agenda tu consulta inicial",
   },
+  // Enlaces a redes sociales y WhatsApp. Se usan en el pie de página, el menú
+  // lateral, la página de contacto y el botón flotante de WhatsApp.
+  redes: {
+    instagram_url: "https://www.instagram.com/novastudios_agency",
+    facebook_url: "https://www.facebook.com/share/1BX1sZT4wr/?mibextid=wwXIfr",
+    youtube_url: "https://youtube.com/@novastudioscr?si=bQ41JkYZ_3djZhVz",
+    whatsapp_numero: "+1 (862) 668-1095",
+    whatsapp_mensaje:
+      "Hola Nova Studios, me interesa conocer más sobre sus servicios.",
+  },
   header: {
     boton: "HABLEMOS",
   },

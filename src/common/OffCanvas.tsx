@@ -1,8 +1,14 @@
 
 import Link from 'next/link';
 import React from 'react';
+import SocialNav, { WhatsappIcon } from '@/components/SocialIcons';
+import type { SocialLinks } from '@/lib/social';
 
-const OffCanvas = ({openCanvas, setOpenCavas} : any) => {
+const OffCanvas = ({ openCanvas, setOpenCavas, redes = {} }: { openCanvas: boolean; setOpenCavas: (v: boolean) => void; redes?: Partial<SocialLinks> }) => {
+  const instagramHandle = (redes.instagram || "")
+    .replace(/^https?:\/\/(www\.)?instagram\.com\//i, "@")
+    .replace(/[/?].*$/, "");
+
   return (
     <>
       <div className={`offcanvas offcanvas-start right-side-vorix-offcanvas shadow-lg ${openCanvas ? 'show' : ''}`} tabIndex={-1} id="sideMenuOffcanvas">
@@ -25,27 +31,42 @@ const OffCanvas = ({openCanvas, setOpenCavas} : any) => {
 
           <div className="contact-info">
 
-            <div>
-              <div className="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-                  <g clipPath="url(#clip0_274_2389)">
-                    <path
-                      d="M39.8523 29.6017C39.5773 28.0233 38.2257 26.765 36.564 26.5433L27.349 25.31C25.6773 25.0817 24.0207 25.97 23.329 27.46C23.1523 27.84 23.004 28.235 22.884 28.6417C20.3023 27.565 17.9857 26.01 15.9857 24.0117C13.9857 22.0133 12.4323 19.6967 11.3557 17.115C11.764 16.9933 12.1573 16.845 12.5373 16.6667C14.0273 15.9733 14.909 14.3217 14.6857 12.6483L13.4523 3.435C13.2307 1.77333 11.974 0.42 10.3657 0.141667C9.78067 0.045 9.29401 0 8.82901 0C5.80401 0 2.94234 1.59833 1.36067 4.17333C-0.349328 6.96 -0.110994 10.5267 0.285672 13.3217C1.18734 19.6517 4.43901 26.0167 9.20901 30.7867C12.754 34.3317 17.1357 36.9883 21.879 38.4683C24.294 39.2233 27.3173 40.01 30.2273 40.01C32.4057 40.01 34.5207 39.5683 36.269 38.3433C38.6057 36.7033 39.999 34.0217 39.999 31.1667C39.999 30.7017 39.954 30.2133 39.8523 29.6017Z"
-                      fill="#ECC80B" />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_274_2389">
-                      <rect width="40" height="40" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </div>
-
+            {redes.whatsapp && (
               <div>
-                <p>Instagram</p>
-                <h5 className="mb-0"><a href="https://www.instagram.com/novastudios_agency" target="_blank" rel="noopener noreferrer">@novastudios_agency</a></h5>
+                <div className="icon" style={{ color: '#ECC80B' }}>
+                  <WhatsappIcon size={40} />
+                </div>
+
+                <div>
+                  <p>WhatsApp</p>
+                  <h5 className="mb-0"><a href={redes.whatsapp} target="_blank" rel="noopener noreferrer">{redes.whatsappNumero}</a></h5>
+                </div>
               </div>
-            </div>
+            )}
+
+            {redes.instagram && (
+              <div>
+                <div className="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <g clipPath="url(#clip0_274_2389)">
+                      <path
+                        d="M39.8523 29.6017C39.5773 28.0233 38.2257 26.765 36.564 26.5433L27.349 25.31C25.6773 25.0817 24.0207 25.97 23.329 27.46C23.1523 27.84 23.004 28.235 22.884 28.6417C20.3023 27.565 17.9857 26.01 15.9857 24.0117C13.9857 22.0133 12.4323 19.6967 11.3557 17.115C11.764 16.9933 12.1573 16.845 12.5373 16.6667C14.0273 15.9733 14.909 14.3217 14.6857 12.6483L13.4523 3.435C13.2307 1.77333 11.974 0.42 10.3657 0.141667C9.78067 0.045 9.29401 0 8.82901 0C5.80401 0 2.94234 1.59833 1.36067 4.17333C-0.349328 6.96 -0.110994 10.5267 0.285672 13.3217C1.18734 19.6517 4.43901 26.0167 9.20901 30.7867C12.754 34.3317 17.1357 36.9883 21.879 38.4683C24.294 39.2233 27.3173 40.01 30.2273 40.01C32.4057 40.01 34.5207 39.5683 36.269 38.3433C38.6057 36.7033 39.999 34.0217 39.999 31.1667C39.999 30.7017 39.954 30.2133 39.8523 29.6017Z"
+                        fill="#ECC80B" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_274_2389">
+                        <rect width="40" height="40" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+
+                <div>
+                  <p>Instagram</p>
+                  <h5 className="mb-0"><a href={redes.instagram} target="_blank" rel="noopener noreferrer">{instagramHandle}</a></h5>
+                </div>
+              </div>
+            )}
 
 
             <div>
@@ -82,16 +103,7 @@ const OffCanvas = ({openCanvas, setOpenCavas} : any) => {
 
           <h4 className="mb-3">Redes Sociales</h4>
 
-
-          <div className="social-nav">
-            <a href="https://www.instagram.com/novastudios_agency" target="_blank" rel="noopener noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                className="bi bi-instagram" viewBox="0 0 16 16">
-                <path
-                  d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-              </svg>
-            </a>
-          </div>
+          <SocialNav links={redes} />
 
 
           <div className="cta-btn">

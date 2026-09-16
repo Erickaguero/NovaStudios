@@ -1,5 +1,7 @@
 "use client"
 import { useWeb3Form } from '@/hooks/use-web3form';
+import type { SocialLinks } from '@/lib/social';
+import { WhatsappIcon } from '@/components/SocialIcons';
 import React from 'react';
 
 const infoStyle: React.CSSProperties = {
@@ -11,7 +13,7 @@ const infoStyle: React.CSSProperties = {
   fontSize: '17px',
 };
 
-const ContactHomeArea = ({ content }: { content: Record<string, string> }) => {
+const ContactHomeArea = ({ content, redes = {} }: { content: Record<string, string>; redes?: Partial<SocialLinks> }) => {
   const { status, handleSubmit } = useWeb3Form();
 
   return (
@@ -32,10 +34,19 @@ const ContactHomeArea = ({ content }: { content: Record<string, string> }) => {
                   <span className="material-symbols-outlined" style={{ color: '#ECC80B', fontSize: '28px' }}>mail</span>
                   <span><span style={{ color: '#ECC80B', fontWeight: 600 }}>Correo:</span> {content.correo}</span>
                 </div>
+                {redes.whatsapp && (
+                  <div style={infoStyle}>
+                    <span style={{ color: '#ECC80B', display: 'flex', width: '28px', justifyContent: 'center' }}><WhatsappIcon size={24} /></span>
+                    <span><span style={{ color: '#ECC80B', fontWeight: 600 }}>WhatsApp:</span>{" "}
+                      <a href={redes.whatsapp} target="_blank" rel="noopener noreferrer"
+                        style={{ color: '#FEFEFE', textDecoration: 'underline' }}>{redes.whatsappNumero}</a>
+                    </span>
+                  </div>
+                )}
                 <div style={infoStyle}>
                   <span className="material-symbols-outlined" style={{ color: '#ECC80B', fontSize: '28px' }}>photo_camera</span>
                   <span><span style={{ color: '#ECC80B', fontWeight: 600 }}>Instagram:</span>{" "}
-                    <a href="https://www.instagram.com/novastudios_agency" target="_blank" rel="noopener noreferrer"
+                    <a href={redes.instagram || "#"} target="_blank" rel="noopener noreferrer"
                       style={{ color: '#FEFEFE', textDecoration: 'underline' }}>{content.instagram}</a>
                   </span>
                 </div>

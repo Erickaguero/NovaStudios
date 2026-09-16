@@ -6,11 +6,17 @@ import FooterOne from '@/layouts/footers/FooterOne';
 import React from 'react';
 import ContactoForm from './ContactoForm';
 import { getSectionContent } from '@/lib/content';
-
-const INSTAGRAM_URL = "https://www.instagram.com/novastudios_agency";
+import { getSocialLinks } from '@/lib/social';
+import SocialNav, { WhatsappIcon } from '@/components/SocialIcons';
 
 const Contacto = async () => {
-  const c = await getSectionContent('contacto_pagina');
+  const [c, redes] = await Promise.all([
+    getSectionContent('contacto_pagina'),
+    getSocialLinks(),
+  ]);
+  const INSTAGRAM_URL = redes.instagram || "#";
+  // Con WhatsApp hay 4 tarjetas de información; sin él, las 3 de siempre.
+  const colTarjeta = redes.whatsapp ? "col-12 col-md-6 col-lg-3" : "col-12 col-md-6 col-lg-4";
 
   const pasos = [1, 2, 3, 4].map((n) => ({
     title: c[`paso_${n}_titulo`],
@@ -42,7 +48,20 @@ const Contacto = async () => {
         <div className="container">
           <div className="row g-4 justify-content-center">
 
-            <div className="col-12 col-md-6 col-lg-4">
+            {redes.whatsapp && (
+              <div className={colTarjeta}>
+                <div className="contact-info-card">
+                  <div className="icon-wrapper" style={{ color: '#ECC80B' }}>
+                    <WhatsappIcon size={40} />
+                  </div>
+
+                  <p className="mb-0">WhatsApp</p>
+                  <h4><a href={redes.whatsapp} target="_blank" rel="noopener noreferrer">{redes.whatsappNumero}</a></h4>
+                </div>
+              </div>
+            )}
+
+            <div className={colTarjeta}>
               <div className="contact-info-card">
                 <div className="icon-wrapper">
                   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -65,7 +84,7 @@ const Contacto = async () => {
             </div>
 
 
-            <div className="col-12 col-md-6 col-lg-4">
+            <div className={colTarjeta}>
               <div className="contact-info-card">
                 <div className="icon-wrapper">
                   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -81,7 +100,7 @@ const Contacto = async () => {
             </div>
 
 
-            <div className="col-12 col-md-6 col-lg-4">
+            <div className={colTarjeta}>
               <div className="contact-info-card">
                 <div className="icon-wrapper">
                   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -149,6 +168,7 @@ const Contacto = async () => {
                 <p>{c.redes_texto}</p>
                 <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer"
                   className="btn btn-primary"><span>{c.redes_boton}</span><span>{c.redes_boton}</span></a>
+                <SocialNav links={redes} size={18} className="redes-links" />
               </div>
             </div>
           </div>
